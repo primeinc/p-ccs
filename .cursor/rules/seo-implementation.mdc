@@ -21,6 +21,13 @@ This project implements robust SEO for a Single Page Application (SPA) deployed 
 * **[src/App.jsx](mdc:src/App.jsx)**: Integration of the SEO component.
   * Passes dynamic parameters to SEO component based on current view
 
+## Static Fallback Solution
+
+* **[index.html](mdc:index.html)**: Contains static Open Graph and Twitter Card meta tags.
+  * Provides essential social sharing metadata even when React Helmet can't do SSR
+  * Ensures crawler visibility for social media platforms
+  * Includes proper absolute URLs with base path for GitHub Pages
+
 ## Static Assets for SEO
 
 * **[public/images/p-css-spotlight.png](mdc:public/images/p-css-spotlight.png)**: Banner image optimized for social sharing.
@@ -39,7 +46,8 @@ This project implements robust SEO for a Single Page Application (SPA) deployed 
 
 ## Configuration
 
-* **[package.json](mdc:package.json)**: Contains GitHub Pages deployment configuration and React Snap settings.
+* **[package.json](mdc:package.json)**: Contains GitHub Pages deployment configuration.
+* **[vite.config.js](mdc:vite.config.js)**: Defines the base path for deployment ("/p-ccs/").
 
 ## Documentation
 

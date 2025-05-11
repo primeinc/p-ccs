@@ -20,7 +20,16 @@ This project is configured for deployment to GitHub Pages.
 * **[public/404.html](mdc:public/404.html)**: Custom 404 page that enables SPA routing on GitHub Pages.
   * Implements the client-side redirect technique for maintaining routes in a SPA.
 
-* **[index.html](mdc:index.html)**: Contains the GitHub Pages SPA routing script that works with 404.html.
+* **[index.html](mdc:index.html)**: 
+  * Contains the GitHub Pages SPA routing script that works with 404.html.
+  * Includes static Open Graph and Twitter Card meta tags for social media crawlers.
+  * Uses absolute URLs with the proper base path for all resources.
+
+## SEO Considerations:
+
+* **Static Metadata**: Since GitHub Pages doesn't support server-side rendering, metadata for social media crawlers is implemented with static tags in the HTML.
+* **Image Paths**: All image URLs in metadata use absolute paths including the base path (`/p-ccs/`).
+* **Base URL**: The full URL structure (`https://primeinc.github.io/p-ccs/`) is used for all canonical and Open Graph URL tags.
 
 ## Deployment Process:
 

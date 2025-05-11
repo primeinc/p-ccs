@@ -12,11 +12,12 @@ This document outlines the SEO improvements implemented to address the constrain
   - Implements proper canonical URLs
   - Adds robots meta tags
 
-### 2. Static Prerendering with React Snap
+### 2. Static Open Graph Tags in HTML
 
-- Integrated `react-snap` for prerendering the SPA into static HTML
-- Configured post-build processing in `package.json`
-- Implemented hydration in `main.jsx` to preserve React functionality
+- Added essential Open Graph and Twitter Card tags directly in `index.html`
+- Ensures social media crawlers can see metadata without JavaScript execution
+- Includes absolute URLs with correct base path for GitHub Pages deployment
+- Maintains compatibility with dynamic React Helmet updates for browsers
 
 ### 3. Structured Data with JSON-LD
 
@@ -55,10 +56,10 @@ This document outlines the SEO improvements implemented to address the constrain
    - `public/robots.txt` - Crawler directives
 
 2. **Modified Files:**
-   - `src/main.jsx` - Added HelmetProvider and hydration support
+   - `src/main.jsx` - Added HelmetProvider
    - `src/App.jsx` - Integrated SEO component
-   - `index.html` - Added fallback script and base meta tags
-   - `package.json` - Added React Snap configuration
+   - `index.html` - Added fallback script, base meta tags, and static Open Graph tags
+   - `package.json` - Configured deployment
 
 ## Testing and Validation
 
@@ -83,7 +84,7 @@ Use these tools to verify the SEO implementation:
 
 Potential additional enhancements:
 
-1. Complete React Snap prerendering implementation (puppeteer configuration needed)
+1. Implement server-side rendering or static site generation if moving away from GitHub Pages
 2. Submit the event to Google Events and local directories
 3. Create social media copy for easy sharing of the event
 4. Consider advanced caching strategies for faster load times 
