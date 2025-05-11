@@ -1,6 +1,7 @@
 import "./App.css";
 import ArtifactCode from "./ArtifactCode";
 import StaffDirectory from "./components/StaffDirectory";
+import SEO from "./components/SEO";
 import { useState } from "react";
 
 function App() {
@@ -8,6 +9,19 @@ function App() {
   
   return (
     <>
+      <SEO 
+        title={showStaffDirectory 
+          ? "P-CCS Art Staff Directory | Find Art Teachers" 
+          : "P-CCS K-12 Art Show | Student Creativity Spotlight"
+        }
+        description={showStaffDirectory
+          ? "Find contact information for art teachers and staff across the Plymouth-Canton Community Schools district."
+          : "Join us at Salem High on May 17, 2025 for the P-CCS Art Show featuring 2,000+ artworks from K-12 students. Live demos, awards, and more!"
+        }
+        type={showStaffDirectory ? "website" : "event"}
+        canonicalUrl={showStaffDirectory ? "/directory" : "/"}
+      />
+      
       {showStaffDirectory ? (
         <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-white font-sans">
           <header className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-5 sticky top-0 z-40 shadow-lg">
