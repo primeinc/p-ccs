@@ -23,6 +23,10 @@ export default function SEO({
       <link rel="canonical" href={fullUrl} />
       <meta name="robots" content="index,follow" />
       
+      {/* Safari Reader Mode compatibility */}
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="format-detection" content="telephone=no" />
+      
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={title} />
@@ -71,6 +75,46 @@ export default function SEO({
               "@type": "Organization",
               "name": "Plymouth-Canton Community Schools",
               "url": "https://www.pccsk12.com"
+            }
+          }
+        `}
+      </script>
+      
+      {/* WebPage structure for reader mode */}
+      <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "${title}",
+            "description": "${description}",
+            "url": "${fullUrl}",
+            "mainEntity": {
+              "@type": "Article",
+              "headline": "P-CCS K-12 Art Show",
+              "description": "${description}",
+              "image": "${imageUrl}",
+              "author": {
+                "@type": "Organization",
+                "name": "Plymouth-Canton Community Schools"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Plymouth-Canton Community Schools",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "${siteUrl}/images/p-css-spotlight.png"
+                }
+              },
+              "mainEntityOfPage": "${fullUrl}",
+              "articleSection": [
+                "Event Overview",
+                "Event Details",
+                "Event Schedule",
+                "Participation",
+                "Judging Process",
+                "Submission Guidelines"
+              ]
             }
           }
         `}

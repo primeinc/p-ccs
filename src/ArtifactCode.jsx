@@ -255,24 +255,55 @@ const KeyContacts = () => {
 // Main App Component
 const App = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 font-sans">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-white font-sans">
       <Header />
-      <StickyMobileHeader /> {/* Added Sticky Header for Mobile */}
-      <div className="container mx-auto px-4 md:px-8 py-6">
-        <Overview />
-        <EventDetails />
-        <Timeline />
-        <KeyContacts />
-        <Participation />
-        <JudgingProcess />
-        <StrategicApproaches />
-        <StrategyByAge />
-        <MediaSelection />
-        <SubmissionGuidelines />
-        <StudentSuccessChecklist />
-        <Gallery />
-        <FAQ />
-      </div>
+      <StickyMobileHeader />
+      
+      <main className="container mx-auto px-4 md:px-8 pt-16 md:pt-24 pb-20">
+        <article className="art-show-content">
+          <Overview />
+          <EventDetails />
+          <Timeline />
+          
+          <section className="participation-info">
+            <Participation />
+          </section>
+          
+          <section className="judging-info">
+            <JudgingProcess />
+          </section>
+          
+          <section className="strategy-info">
+            <StrategyByAge />
+            <StrategicApproaches />
+          </section>
+          
+          <section className="media-info">
+            <MediaSelection />
+          </section>
+          
+          <section className="guidelines-info">
+            <SubmissionGuidelines />
+          </section>
+          
+          <section className="gallery-info">
+            <Gallery />
+          </section>
+          
+          <section className="faq-info">
+            <FAQ />
+          </section>
+          
+          <section className="success-checklist">
+            <StudentSuccessChecklist />
+          </section>
+          
+          <section className="contacts-info">
+            <KeyContacts />
+          </section>
+        </article>
+      </main>
+      
       <Footer />
     </div>
   );
@@ -354,9 +385,9 @@ const Badge = ({ children, icon }) => {
 };
 
 // Section Title Component
-const SectionTitle = ({ children }) => {
+const SectionTitle = ({ children, id }) => {
   return (
-    <h3 className="text-xl md:text-3xl font-bold text-indigo-800 mb-4 md:mb-6 pb-2 text-left md:text-center md:border-b-2 md:border-indigo-200">
+    <h3 className="text-xl md:text-3xl font-bold text-indigo-800 mb-4 md:mb-6 pb-2 text-left md:text-center md:border-b-2 md:border-indigo-200" id={id}>
       {children}
     </h3>
   );
@@ -365,8 +396,8 @@ const SectionTitle = ({ children }) => {
 // Overview Component
 const Overview = () => {
   return (
-    <section className="my-12">
-      <SectionTitle>Event Overview</SectionTitle>
+    <section className="my-12" aria-labelledby="overview-title">
+      <SectionTitle id="overview-title">Event Overview</SectionTitle>
       <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
         <p className="text-lg text-gray-700 leading-relaxed mb-6">
           The <strong>Annual P-CCS K-12 Art Show</strong> is a vibrant celebration of student artistic achievement across the Plymouth-Canton Community Schools district. This showcase features approximately 2,000 teacher-nominated artworks from students in kindergarten through 12th grade, offering the community an opportunity to engage with creative work representing all district schools. With juried awards, live art demonstrations, and displays organized by age level, this event reflects the district's strong commitment to arts education.
@@ -505,8 +536,8 @@ const EventDetails = () => {
   };
 
   return (
-    <section className="my-8 md:my-12">
-      <SectionTitle>Event Details</SectionTitle>
+    <section className="my-8 md:my-12" aria-labelledby="event-details-title">
+      <SectionTitle id="event-details-title">Event Details</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <DetailCard 
           title="Location" 
@@ -621,8 +652,8 @@ const Timeline = () => {
   ];
 
   return (
-    <section className="my-8 md:my-12">
-      <SectionTitle>Event Schedule</SectionTitle>
+    <section className="my-8 md:my-12" aria-labelledby="schedule-title">
+      <SectionTitle id="schedule-title">Event Schedule</SectionTitle>
       {/* Mobile Timeline (Simplified Stacked) */}
       <div className="md:hidden space-y-4">
         {timelineEvents.map((event, index) => (
