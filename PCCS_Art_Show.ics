@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Gemini Large Language Model//PCCS Art Show Event//EN
+BEGIN:VEVENT
+UID:art-show-2025@pccs.com
+DTSTAMP:20250511T032100Z
+DTSTART:20250517T153000Z
+DTEND:20250517T200000Z
+SUMMARY:P-CCS K-12 Art Show
+DESCRIPTION:Annual P-CCS K-12 Art Show.\nExhibition: 11:30 AM - 3:30 PM.\nAwards: 3:30 PM - 4:00 PM.\nAdmission: Open to the public. Suggested donation: $5-$10 per family. Proceeds support art programs.\nLocation: Salem High School Cafeteria.
+LOCATION:Salem High School Cafeteria, 46181 Joy Rd, Canton, MI 48187
+END:VEVENT
+END:VCALENDAR
