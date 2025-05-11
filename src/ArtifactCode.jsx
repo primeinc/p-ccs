@@ -1,4 +1,121 @@
-import React, { useState } from 'react';
+// KeyContacts Component
+const KeyContacts = () => {
+  return (
+    <section className="my-12">
+      <SectionTitle>Key Contacts & Influence Network</SectionTitle>
+      
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <p className="mb-6 text-gray-700">
+          Understanding the key decision-makers in the P-CCS art education network can help students and parents 
+          navigate the art show process more effectively. Here are the most influential figures identified through research.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div className="bg-indigo-50 rounded-lg overflow-hidden">
+            <div className="bg-indigo-600 px-4 py-3">
+              <h4 className="font-semibold text-white">District Leadership</h4>
+            </div>
+            <div className="p-4">
+              <div className="mb-4 border-b pb-4 border-indigo-100">
+                <h5 className="font-medium text-indigo-800">Cathie Williams</h5>
+                <p className="text-gray-700"><span className="font-medium">Role:</span> K-12 Curriculum Coordinator for Visual and Performing Arts</p>
+                <p className="text-gray-700"><span className="font-medium">Email:</span> catherine.williams@pccsk12.com</p>
+                <p className="text-gray-600 text-sm mt-2">
+                  As the district's arts curriculum coordinator, Ms. Williams oversees all visual arts programming and likely 
+                  plays a central role in organizing the K-12 Art Show. She maintains relationships with all art teachers and 
+                  influences arts education standards across P-CCS.
+                </p>
+              </div>
+              
+              <div className="mb-4 border-b pb-4 border-indigo-100">
+                <h5 className="font-medium text-indigo-800">Beth Rayl</h5>
+                <p className="text-gray-700"><span className="font-medium">Role:</span> Chief Academic Officer</p>
+                <p className="text-gray-600 text-sm mt-2">
+                  Ms. Rayl oversees academic programs district-wide, including arts education. Cathie Williams 
+                  reports to her in the organizational structure.
+                </p>
+              </div>
+              
+              <div>
+                <h5 className="font-medium text-indigo-800">Dr. Sean Jackman</h5>
+                <p className="text-gray-700"><span className="font-medium">Role:</span> Arts Academy Leader</p>
+                <p className="text-gray-700"><span className="font-medium">Email:</span> sean.jackman@pccsk12.com</p>
+                <p className="text-gray-600 text-sm mt-2">
+                  Dr. Jackman leads the P-CEP Arts Academy program and may influence district-wide arts initiatives.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-indigo-50 rounded-lg overflow-hidden">
+            <div className="bg-indigo-600 px-4 py-3">
+              <h4 className="font-semibold text-white">Art Teachers</h4>
+            </div>
+            <div className="p-4">
+              <div className="mb-4 border-b pb-4 border-indigo-100">
+                <h5 className="font-medium text-indigo-800">Jennifer Wolf</h5>
+                <p className="text-gray-700"><span className="font-medium">Role:</span> Elementary Art Teacher</p>
+                <p className="text-gray-700"><span className="font-medium">Email:</span> jennifer.wolf@pccsk12.com</p>
+                <p className="text-gray-600 text-sm mt-2">
+                  Described as "one of the most creative, caring, knowledgeable teachers" with experience teaching 
+                  art to K-2 students. Ms. Wolf has a background in photography and emphasizes creating a 
+                  "positive atmosphere" for student growth.
+                </p>
+              </div>
+              
+              <div className="mb-4 border-b pb-4 border-indigo-100">
+                <h5 className="font-medium text-indigo-800">Anastasia Vanderkloot</h5>
+                <p className="text-gray-700"><span className="font-medium">Role:</span> Elementary Art Teacher</p>
+                <p className="text-gray-700"><span className="font-medium">Schools:</span> Bentley & Field Elementary</p>
+                <p className="text-gray-700"><span className="font-medium">Email:</span> anastasia.vanderkloot@pccsk12.com</p>
+              </div>
+              
+              <div className="mb-4 border-b pb-4 border-indigo-100">
+                <h5 className="font-medium text-indigo-800">Lisa Hedrick</h5>
+                <p className="text-gray-700"><span className="font-medium">Role:</span> Art Teacher</p>
+                <p className="text-gray-700"><span className="font-medium">School:</span> West Middle School</p>
+                <p className="text-gray-700"><span className="font-medium">Email:</span> lisa.hedrick@pccsk12.com</p>
+              </div>
+              
+              <div>
+                <h5 className="font-medium text-indigo-800">Other P-CCS Art Teachers</h5>
+                <p className="text-gray-600 text-sm mt-2">
+                  The district employs full-time, certified visual arts teachers at all elementary and middle schools.
+                  All staff follow the standard email format: firstname.lastname@pccsk12.com
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="bg-blue-50 p-4 rounded-lg mt-6">
+          <h5 className="font-semibold text-blue-800 mb-2">Influence Network Strategic Insight</h5>
+          <p className="text-gray-700 mb-3">
+            Understanding this network of influence is crucial for strategic engagement:
+          </p>
+          <ul className="space-y-2 text-gray-700">
+            <li className="flex items-start">
+              <span className="text-blue-600 mr-2">•</span>
+              <span>Art teachers are the primary gateway to nomination - they select which student work is submitted to the show</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-blue-600 mr-2">•</span>
+              <span>Cathie Williams, as the district arts coordinator, likely influences overall selection guidelines and priorities</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-blue-600 mr-2">•</span>
+              <span>School PTAs/PTOs may include arts committee members who advocate for visual arts</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-blue-600 mr-2">•</span>
+              <span>Building positive relationships with these key figures can increase a student's chances of having work selected</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+};import React, { useState } from 'react';
 
 // Main App Component
 const App = () => {
@@ -9,6 +126,7 @@ const App = () => {
         <Overview />
         <EventDetails />
         <Timeline />
+        <KeyContacts />
         <Participation />
         <JudgingProcess />
         <StrategyByAge />
@@ -522,27 +640,27 @@ const JudgingProcess = () => {
               <div className="space-y-4 mb-6">
                 <div className="pl-4 border-l-4 border-indigo-300">
                   <h5 className="font-semibold text-indigo-700">Composition</h5>
-                  <p className="text-gray-700">How well artistic elements are arranged using design principles</p>
+                  <p className="text-gray-700">How well artistic elements are arranged using design principles; visual balance and structure</p>
                 </div>
                 
                 <div className="pl-4 border-l-4 border-indigo-300">
                   <h5 className="font-semibold text-indigo-700">Creativity</h5>
-                  <p className="text-gray-700">Originality of the idea and innovation in approach</p>
+                  <p className="text-gray-700">Originality of the idea, innovation in approach, and uniqueness of vision</p>
                 </div>
                 
                 <div className="pl-4 border-l-4 border-indigo-300">
                   <h5 className="font-semibold text-indigo-700">Focus</h5>
-                  <p className="text-gray-700">Clarity of the artwork's subject/theme and the artist's intent</p>
+                  <p className="text-gray-700">Clarity of the artwork's subject/theme, the artist's intent, and overall cohesion</p>
                 </div>
                 
                 <div className="pl-4 border-l-4 border-indigo-300">
                   <h5 className="font-semibold text-indigo-700">Craftsmanship</h5>
-                  <p className="text-gray-700">Skill in using materials and overall neatness of execution</p>
+                  <p className="text-gray-700">Skill in using materials, neatness of execution, and attention to detail</p>
                 </div>
                 
                 <div className="pl-4 border-l-4 border-indigo-300">
                   <h5 className="font-semibold text-indigo-700">Technique</h5>
-                  <p className="text-gray-700">Specific methods and skills applied in creating the artwork</p>
+                  <p className="text-gray-700">Specific methods and skills applied in creating the artwork; mastery of the chosen medium</p>
                 </div>
               </div>
               
@@ -575,6 +693,7 @@ const JudgingProcess = () => {
                     <li>Ensure precision in execution and craftsmanship</li>
                     <li>Show conceptual depth and thoughtful development</li>
                     <li>Demonstrate appropriate technique for your chosen medium</li>
+                    <li>Align with Michigan Academic Standards for visual arts</li>
                   </ul>
                 </div>
                 
@@ -586,6 +705,7 @@ const JudgingProcess = () => {
                     <li>Consider local connections or community-relevant themes</li>
                     <li>Focus on storytelling elements that connect with viewers</li>
                     <li>Use vibrant colors and distinctive approaches that stand out</li>
+                    <li>Create work that demonstrates the P-CCS Learner Profile traits (innovator, communicator, etc.)</li>
                   </ul>
                 </div>
                 
@@ -594,7 +714,23 @@ const JudgingProcess = () => {
                   <p className="text-gray-700">
                     The most successful strategy combines elements that appeal to both judging tracks: technically excellent 
                     execution that demonstrates skill (for professional jurors) with emotionally resonant subject matter 
-                    or unique perspective (for celebrity judges).
+                    or unique perspective (for celebrity judges). Creating work that authentically embodies both qualities 
+                    maximizes recognition opportunities.
+                  </p>
+                </div>
+                
+                <div className="pl-4 border-l-4 border-red-300 mt-6">
+                  <h5 className="font-semibold text-red-700">Artwork Documentation Strategy</h5>
+                  <p className="text-gray-700 mb-2">For any digital or complex artwork:</p>
+                  <ul className="list-disc pl-6 text-gray-700 space-y-1">
+                    <li>Document your creative process with preliminary sketches or development photos</li>
+                    <li>Prepare a concise artist statement that articulates your concept and process</li>
+                    <li>Be prepared to explain how your work demonstrates originality</li>
+                    <li>Focus on how human creativity guided any digital tools used</li>
+                  </ul>
+                  <p className="text-gray-600 italic text-sm mt-2">
+                    Note: P-CCS-affiliated arts programs do not accept artwork with AI components, so documentation 
+                    of your human-driven creative process is essential.
                   </p>
                 </div>
               </div>
@@ -954,37 +1090,42 @@ const SubmissionGuidelines = () => {
   const tips = [
     {
       title: "Develop Rapport with Art Teachers",
-      content: "Since teacher nomination is the critical gateway to the show, building a positive relationship with your art teacher is essential. Show enthusiasm during class, ask thoughtful questions, participate actively, and demonstrate genuine effort. Complete assignments thoroughly and show consistent improvement throughout the year."
+      content: "Since teacher nomination is the critical gateway to the show, building a positive relationship with your art teacher is essential. Show enthusiasm during class, ask thoughtful questions, participate actively, and demonstrate genuine effort. Complete assignments thoroughly and show consistent improvement throughout the year. Remember that art teachers are specifically looking for work that demonstrates the five key judging criteria: composition, creativity, focus, craftsmanship, and technique."
     },
     {
       title: "Focus on Originality",
-      content: "Original work is highly valued. While no explicit rules for the K-12 show have been published regarding AI art, P-CCS affiliated scholarships do not accept artwork with AI components. Create genuinely original work and document your creative process with preliminary sketches or development photos."
+      content: "Original work is highly valued. While no explicit rules for the K-12 show have been published regarding AI art, P-CCS affiliated scholarships do not accept artwork with AI components. Create genuinely original work and document your creative process with preliminary sketches or development photos. This documentation is increasingly important for digital artwork to demonstrate human-driven creativity."
     },
     {
       title: "Develop a Distinctive Style",
-      content: "Art teachers who see hundreds of student pieces often notice and appreciate students developing a unique visual approach or signature elements. This helps teachers identify your growth over time and makes your work more memorable in a competitive environment."
+      content: "Art teachers who see hundreds of student pieces often notice and appreciate students developing a unique visual approach or signature elements. This helps teachers identify your growth over time and makes your work more memorable in a competitive environment where approximately 2,000 pieces are selected district-wide."
     },
     {
-      title: "Consider the P-CCS Learner Profile",
-      content: "The district values traits like 'Innovator,' 'Critical Thinker,' and 'Communicator.' Artwork that demonstrates these qualities—through innovative techniques, thoughtful concept development, or effective visual communication—may resonate with judges familiar with district values."
+      title: "Align with P-CCS Values and Curriculum",
+      content: "The district values traits like 'Innovator,' 'Critical Thinker,' and 'Communicator.' Artwork that demonstrates these qualities may resonate with judges familiar with district values. Additionally, work that shows an understanding of Michigan Academic Standards for visual arts will likely receive favorable consideration. Consider how your art demonstrates learning objectives established in the curriculum."
     },
     {
       title: "Prioritize Craftsmanship",
-      content: "Regardless of your age or skill level, careful craftsmanship and attention to detail significantly impact judges' impressions. Ensure clean edges, careful application of media, secure attachment of collage elements, and overall neatness in your presentation."
+      content: "Regardless of your age or skill level, careful craftsmanship and attention to detail significantly impact judges' impressions. Ensure clean edges, careful application of media, secure attachment of collage elements, and overall neatness in your presentation. Professional jurors specifically evaluate craftsmanship as one of their five formal criteria."
     },
     {
-      title: "Complete Work Thoroughly",
-      content: "Unfinished work rarely gets selected regardless of potential. Ensure all aspects of your piece receive attention, including backgrounds and details that might seem less important. Teachers look for students who demonstrate dedication to completing projects with care."
+      title: "Balance Technical Excellence with Emotional Impact",
+      content: "The dual judging system (professional jurors and celebrity judges) means that work should ideally balance technical excellence with emotional resonance and originality. For elementary students especially, bright mixed media works with strong emotional impact typically outperform technically perfect pieces when evaluated by celebrity judges."
+    },
+    {
+      title: "Consider Strategic Timing",
+      content: "With over 2,000 pieces selected across the district, there may be informal quotas for representation from each school. Understanding when your art teacher makes selections and ensuring your best work is complete and visible during that period can be important. Developing consistent quality work throughout the year, rather than a single piece, increases your chances of selection."
     }
   ];
   
   return (
     <section className="my-12">
-      <SectionTitle>Submission Guidelines & Tips</SectionTitle>
+      <SectionTitle>Submission Guidelines & Strategic Tips</SectionTitle>
       
       <div className="bg-white rounded-lg shadow-md p-6">
         <p className="mb-6 text-gray-700">
-          Based on analysis of past shows and P-CCS practices, here are strategic tips for students looking to maximize their chances of selection and recognition:
+          Based on comprehensive research of P-CCS art education processes and practices, here are strategic 
+          approaches for maximizing your chances of being selected for the May 17, 2025 art show:
         </p>
         
         <div className="divide-y">
@@ -1011,22 +1152,26 @@ const SubmissionGuidelines = () => {
         </div>
         
         <div className="mt-8 bg-blue-50 p-4 rounded-lg">
-          <h4 className="font-semibold text-blue-800 mb-2">Teacher Contact Information</h4>
+          <h4 className="font-semibold text-blue-800 mb-2">Ethical Engagement Strategies</h4>
           <p className="text-gray-700 mb-3">
-            Limited public information is available about current elementary art teachers, but research identified:
+            When engaging with teachers and administrators, maintain these ethical boundaries:
           </p>
           <ul className="space-y-2 text-gray-700">
             <li className="flex items-start">
               <span className="text-blue-600 mr-2">•</span>
-              <span>Anastasia Vanderkloot (teaches at both Bentley and Field Elementary)</span>
+              <span>Focus on seeking guidance for student growth rather than pressuring for nominations</span>
             </li>
             <li className="flex items-start">
               <span className="text-blue-600 mr-2">•</span>
-              <span>Standard email format: firstname.lastname@pccsk12.com</span>
+              <span>Frame requests as interest in artistic development (e.g., "How can I improve my techniques?" rather than "Will you select my work?")</span>
             </li>
             <li className="flex items-start">
               <span className="text-blue-600 mr-2">•</span>
-              <span>For current teacher information, contact the district office directly: (734) 416-2700</span>
+              <span>Use email communication with teachers respectfully, following the district format (firstname.lastname@pccsk12.com)</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-blue-600 mr-2">•</span>
+              <span>Engage with district-wide coordinators like Cathie Williams (catherine.williams@pccsk12.com) only regarding curriculum or broader arts education questions</span>
             </li>
           </ul>
         </div>
