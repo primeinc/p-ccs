@@ -150,10 +150,10 @@ const StaffDirectory = () => {
                         const isStaffExpanded = expandedStaff[staffKey];
                         
                         return (
-                          <div key={staffIndex} className={`relative transition-all duration-300 ${isStaffExpanded ? 'sm:col-span-2 lg:col-span-3' : ''}`}>
+                          <div key={staffIndex} className="relative">
                             <div 
                               className={`relative overflow-hidden transition-all duration-300 rounded-xl shadow-sm hover:shadow-md bg-white border ${
-                                isStaffExpanded ? 'border-indigo-300 ring-2 ring-indigo-100' : 'border-gray-200 hover:border-indigo-200'
+                                isStaffExpanded ? 'border-indigo-300 ring-2 ring-indigo-100 z-10 relative' : 'border-gray-200 hover:border-indigo-200'
                               }`}
                             >
                               <div 
@@ -199,25 +199,36 @@ const StaffDirectory = () => {
                               </div>
                             </div>
                             
-                            {/* Staff Details - Redesigned for better visual appeal */}
+                            {/* Staff Details - Redesigned as modal overlay */}
                             {isStaffExpanded && (
-                              <div className="mt-3 rounded-xl overflow-hidden animate-fadeIn">
-                                <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
-                                  {/* Header */}
-                                  <div className="bg-indigo-900 py-2.5 px-4">
-                                    <div className="flex items-center">
-                                      <div className="bg-white/20 rounded-full p-1.5 mr-2.5">
-                                        <svg className="h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                              <div className="fixed inset-0 bg-black bg-opacity-30 z-50 flex items-center justify-center p-4" onClick={(e) => {
+                                if (e.target === e.currentTarget) toggleStaff(categoryIndex, staffIndex);
+                              }}>
+                                <div className="bg-white rounded-lg overflow-hidden max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-xl animate-fadeIn" onClick={(e) => e.stopPropagation()}>
+                                  <div className="sticky top-0 z-10">
+                                    {/* Header */}
+                                    <div className="bg-indigo-900 py-3 px-4 flex justify-between items-center">
+                                      <div className="flex items-center">
+                                        <div className={`w-10 h-10 flex items-center justify-center rounded-lg mr-3 text-white font-bold text-md ${colors.bg}`}>
+                                          {getInitial(person.name)}
+                                        </div>
+                                        <div>
+                                          <h3 className="text-white text-lg font-bold">{person.name}</h3>
+                                          {person.school && <p className="text-indigo-200 text-sm">{person.school}</p>}
+                                        </div>
+                                      </div>
+                                      <button 
+                                        onClick={() => toggleStaff(categoryIndex, staffIndex)}
+                                        className="rounded-full bg-white/20 p-1.5 hover:bg-white/30 transition-colors"
+                                      >
+                                        <svg className="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                         </svg>
-                                      </div>
-                                      <div>
-                                        <h3 className="text-white text-base font-bold">Professional Information</h3>
-                                      </div>
+                                      </button>
                                     </div>
                                   </div>
-                                  
-                                  {/* New Grid-based content layout */}
+
+                                  {/* Content */}
                                   <div className="p-4">
                                     {/* Two-column grid for desktop, single column for mobile */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -290,7 +301,7 @@ const StaffDirectory = () => {
                                       )}
                                     </div>
                                     
-                                    {/* Education - Full width on third row */}
+                                    {/* Education - Full width */}
                                     {person.education && (
                                       <div className="flex items-start bg-indigo-50 rounded-md p-3 border border-indigo-100 mt-3 hover:shadow-sm transition-all duration-200">
                                         <div className="p-1.5 rounded-md mr-2.5 bg-indigo-600 text-white flex-shrink-0">
@@ -307,7 +318,7 @@ const StaffDirectory = () => {
                                       </div>
                                     )}
                                     
-                                    {/* Note - Full width on fourth row */}
+                                    {/* Note - Full width */}
                                     {person.note && (
                                       <div className="flex items-start bg-teal-50 rounded-md p-3 border border-teal-100 mt-3 hover:shadow-sm transition-all duration-200">
                                         <div className="p-1.5 rounded-md mr-2.5 bg-teal-600 text-white flex-shrink-0">
