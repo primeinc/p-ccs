@@ -7,6 +7,20 @@ This project is a React application built with Vite that provides information ab
 *   Displays event details, timeline, key contacts, participation information, judging process, and more, based on research about the P-CCS K-12 Art Show.
 *   Built with React and Vite.
 *   Styled with Tailwind CSS.
+*   Optimized for search engines with React Helmet Async, structured data, and proper meta tags.
+*   Configured for SPA routing on GitHub Pages.
+
+## SEO Implementation
+
+The site implements comprehensive SEO best practices for a Single Page Application:
+
+*   Dynamic metadata management via React Helmet Async
+*   Structured data (JSON-LD) for event information
+*   Open Graph and Twitter Card meta tags for social sharing
+*   Sitemap.xml and robots.txt for search engine crawling
+*   SPA routing solution compatible with GitHub Pages
+
+See [SEO-IMPROVEMENTS.md](SEO-IMPROVEMENTS.md) for detailed information about the SEO features implemented.
 
 ## Development
 
@@ -48,6 +62,16 @@ The deployment process involves:
 Key configuration files for deployment:
 *   `package.json` (see `homepage`, `predeploy`, `deploy` scripts)
 *   `vite.config.js` (see `base` setting)
+*   `public/404.html` and routing script in `index.html` for SPA routing
+
+## Testing SEO Implementation
+
+The SEO implementation can be validated using:
+
+1. **Google's Rich Results Test:** [https://search.google.com/test/rich-results](https://search.google.com/test/rich-results)
+2. **Facebook Sharing Debugger:** [https://developers.facebook.com/tools/debug/](https://developers.facebook.com/tools/debug/)
+3. **Twitter Card Validator:** [https://cards-dev.twitter.com/validator](https://cards-dev.twitter.com/validator)
+4. **Google Lighthouse** (in Chrome DevTools)
 
 ## Additional Tools
 

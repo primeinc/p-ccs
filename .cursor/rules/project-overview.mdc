@@ -1,11 +1,11 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
 # Project Overview
 
-This is a React project built with Vite and styled with Tailwind CSS. It also utilizes PNPM as the package manager.
+This is a React project for the Plymouth-Canton Community Schools (P-CCS) Art Show, built with Vite and deployed on GitHub Pages.
 
 ## Key Files and Directories:
 
@@ -28,12 +28,19 @@ This is a React project built with Vite and styled with Tailwind CSS. It also ut
 *   **`[public/](mdc:public)`**: Directory for static assets that are copied directly to the build output directory without processing by Vite.
 *   **`[.eslintrc.cjs](mdc:.eslintrc.cjs)`**: Configuration file for ESLint, used for code linting and maintaining code quality.
 *   **`[.gitignore](mdc:.gitignore)`**: Specifies intentionally untracked files that Git should ignore.
+*   **`[src/components/SEO.jsx](mdc:src/components/SEO.jsx)**: Centralized SEO component using React Helmet.
+*   **`[public/images/p-css-spotlight.png](mdc:public/images/p-css-spotlight.png)**: Banner image for social media sharing.
+*   **`[public/sitemap.xml](mdc:public/sitemap.xml)**: XML sitemap for search engines.
+*   **`[public/robots.txt](mdc:public/robots.txt)**: Instructions for web crawlers.
+*   **`[public/404.html](mdc:public/404.html)**: Custom 404 page with SPA routing support.
+*   **`[SEO-IMPROVEMENTS.md](mdc:SEO-IMPROVEMENTS.md)**: Documentation of SEO enhancements implemented.
 
 ## Development Workflow:
 
 1.  Install dependencies: `pnpm install`
 2.  Start the development server: `pnpm run dev` (typically available at `http://localhost:5173`)
 3.  Build for production: `pnpm run build`
+4.  Deploy to GitHub Pages: `pnpm run deploy`
 
 ## Key Technologies:
 

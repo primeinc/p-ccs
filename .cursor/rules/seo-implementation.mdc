@@ -1,0 +1,46 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# SEO Implementation
+
+This project implements robust SEO for a Single Page Application (SPA) deployed on GitHub Pages, addressing the challenges of client-side rendering.
+
+## Core SEO Components
+
+* **[src/components/SEO.jsx](mdc:src/components/SEO.jsx)**: Central component handling all metadata with React Helmet Async.
+  * Dynamic metadata injection based on current view
+  * Open Graph and Twitter Card tags for social sharing
+  * Structured Data / JSON-LD for the Art Show event
+
+* **[src/main.jsx](mdc:src/main.jsx)**: Entry point with HelmetProvider setup.
+  * Wrapped the app with HelmetProvider
+  * Support for client-side rendering with future prerendering capabilities
+
+* **[src/App.jsx](mdc:src/App.jsx)**: Integration of the SEO component.
+  * Passes dynamic parameters to SEO component based on current view
+
+## Static Assets for SEO
+
+* **[public/images/p-css-spotlight.png](mdc:public/images/p-css-spotlight.png)**: Banner image optimized for social sharing.
+
+* **[public/sitemap.xml](mdc:public/sitemap.xml)**: XML sitemap listing all pages for search engines.
+
+* **[public/robots.txt](mdc:public/robots.txt)**: Provides search engine crawling instructions.
+
+## SPA Routing for GitHub Pages
+
+* **[public/404.html](mdc:public/404.html)**: Handles SPA routing redirects for GitHub Pages.
+  * Uses the SPA GitHub Pages technique for client-side routing
+  * Preserves route state between page loads
+
+* **[index.html](mdc:index.html)**: Contains complementary script for SPA routing.
+
+## Configuration
+
+* **[package.json](mdc:package.json)**: Contains GitHub Pages deployment configuration and React Snap settings.
+
+## Documentation
+
+* **[SEO-IMPROVEMENTS.md](mdc:SEO-IMPROVEMENTS.md)**: Comprehensive documentation of SEO features implemented.

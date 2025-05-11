@@ -1,6 +1,6 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
 # GitHub Pages Deployment Setup
@@ -9,28 +9,33 @@ This project is configured for deployment to GitHub Pages.
 
 ## Key Files and Configuration:
 
-*   **`package.json`**: [package.json](mdc:package.json)
-    *   `"homepage": "https://primeinc.github.io/p-ccs"`: Specifies the expected URL for the deployed site.
-    *   `"predeploy": "pnpm run build"`: Script that runs the Vite build process before deployment.
-    *   `"deploy": "gh-pages -d dist"`: Script that uses the `gh-pages` package to push the contents of the `dist` directory (the build output) to the `gh-pages` branch on GitHub.
-*   **`vite.config.js`**: [vite.config.js](mdc:vite.config.js)
-    *   `base: "/p-ccs/"`: Configures Vite to correctly resolve asset paths for a site hosted in a subdirectory (e.g., `username.github.io/repository-name/`).
-*   **`gh-pages` package**: This development dependency (installed via `pnpm add -D gh-pages`) handles the process of deploying the build output to the `gh-pages` branch.
+* **[package.json](mdc:package.json)**:
+  * `"homepage": "https://primeinc.github.io/p-ccs"`: Specifies the expected URL for the deployed site.
+  * `"predeploy": "pnpm run build"`: Script that runs the Vite build process before deployment.
+  * `"deploy": "gh-pages -d dist"`: Script that uses the `gh-pages` package to push the contents of the `dist` directory to the `gh-pages` branch on GitHub.
+
+* **[vite.config.js](mdc:vite.config.js)**:
+  * `base: "/p-ccs/"`: Configures Vite to correctly resolve asset paths for a site hosted in a subdirectory (e.g., `username.github.io/repository-name/`).
+
+* **[public/404.html](mdc:public/404.html)**: Custom 404 page that enables SPA routing on GitHub Pages.
+  * Implements the client-side redirect technique for maintaining routes in a SPA.
+
+* **[index.html](mdc:index.html)**: Contains the GitHub Pages SPA routing script that works with 404.html.
 
 ## Deployment Process:
 
-1.  Run the deployment script:
-    ```bash
-    pnpm run deploy
-    ```
-    This command first runs `pnpm run build` (due to the `predeploy` script) and then `gh-pages -d dist`.
+1. Run the deployment script:
+   ```bash
+   pnpm run deploy
+   ```
+   This command first runs `pnpm run build` (due to the `predeploy` script) and then `gh-pages -d dist`.
 
-2.  **GitHub Repository Settings**:
-    *   Navigate to the repository settings on GitHub (`https://github.com/primeinc/p-ccs/settings/pages`).
-    *   Under "Build and deployment":
-        *   Source: "Deploy from a branch"
-        *   Branch: `gh-pages`
-        *   Folder: `/ (root)`
-    *   Save the settings.
+2. **GitHub Repository Settings**:
+   * Navigate to the repository settings on GitHub (`https://github.com/primeinc/p-ccs/settings/pages`).
+   * Under "Build and deployment":
+     * Source: "Deploy from a branch"
+     * Branch: `gh-pages`
+     * Folder: `/ (root)`
+   * Save the settings.
 
 The site should then be available at `https://primeinc.github.io/p-ccs`.
