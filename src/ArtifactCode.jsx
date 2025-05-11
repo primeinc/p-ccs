@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import React from 'react';
 
 // KeyContacts Component
 const KeyContacts = () => {
@@ -259,17 +260,117 @@ const Overview = () => {
 const EventDetails = () => {
   const eventLocation = "Salem High School Cafeteria, 46181 Joy Rd, Canton, MI 48187";
   const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(eventLocation)}`;
+  const [isCalendarDropdownOpen, setIsCalendarDropdownOpen] = useState(false);
+  const dropdownRef = React.useRef(null);
 
-  // Basic Add to Calendar link (ICS file generation would be more robust)
-  const addToCalendarLink = () => {
-    // Using a simplified Google Calendar link for demonstration
-    // A proper solution would involve generating an .ics file or using a library
-    const startTime = "20250517T113000"; // YYYYMMDDTHHMMSS (UTC is preferred for .ics)
-    const endTime = "20250517T160000";
-    const title = encodeURIComponent("P-CCS K-12 Art Show");
-    const details = encodeURIComponent("Annual P-CCS K-12 Art Show. Location: Salem High School Cafeteria. More info: [Link to page]");
-    const location = encodeURIComponent(eventLocation);
-    return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startTime}/${endTime}&details=${details}&location=${location}`;
+  // Close dropdown when clicking outside
+  React.useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsCalendarDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Device detection for calendar suggestions
+  const isAppleDevice = () => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    return /iPad|iPhone|iPod|Macintosh|Mac OS/.test(userAgent);
+  };
+
+  // Calendar options
+  const calendarOptions = [
+    {
+      name: 'Apple Calendar',
+      icon: 'apple',
+      action: () => window.location.href = '/p-ccs/PCCS_Art_Show.ics',
+      primary: isAppleDevice(),
+    },
+    {
+      name: 'Google Calendar',
+      icon: 'google',
+      action: () => {
+        const startTime = "20250517T113000";
+        const endTime = "20250517T160000";
+        const title = encodeURIComponent("P-CCS K-12 Art Show");
+        const details = encodeURIComponent("Annual P-CCS K-12 Art Show. Location: Salem High School Cafeteria.");
+        const location = encodeURIComponent(eventLocation);
+        window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startTime}/${endTime}&details=${details}&location=${location}`, '_blank');
+      },
+      primary: !isAppleDevice(),
+    },
+    {
+      name: 'Outlook',
+      icon: 'outlook',
+      action: () => window.location.href = '/p-ccs/PCCS_Art_Show.ics',
+      primary: false,
+    },
+    {
+      name: 'Download .ics',
+      icon: 'download',
+      action: () => window.location.href = '/p-ccs/PCCS_Art_Show.ics',
+      primary: false,
+    }
+  ];
+
+  // Get primary calendar option based on device
+  const primaryOption = calendarOptions.find(option => option.primary) || calendarOptions[0];
+
+  // Icon components
+  const getIcon = (iconName) => {
+    switch(iconName) {
+      case 'apple':
+        return (
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="mr-1.5">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+        );
+      case 'google':
+        return (
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="mr-1.5">
+            <path d="M12.545 12.151L12.254 12h.291zm1.334-1.713l.022.038c.386.733.578 1.482.578 2.256v.97c.84.08.713.132.713.213v1.438a.715.715 0 01-.713.713h-4.949a.716.716 0 01-.714-.713v-1.438c0-.081.029-.133.713-.213v-.97c0-.775.194-1.525.581-2.258l.022-.038A4.265 4.265 0 0112 8.744a4.266 4.266 0 011.879 1.694zM12.545 12.151zm0 0L12.254 12M10 18.5h4M10 20h4"/>
+          </svg>
+        );
+      case 'outlook':
+        return (
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="mr-1.5">
+            <path d="M14.5 12.59l.9 2.38a.23.23 0 0 0 .47 0l.9-2.38 3.18-2.84a.23.23 0 0 0-.15-.42h-2.77a.23.23 0 0 0-.22.15L16 11.62l-.77-2.14a.23.23 0 0 0-.21-.15h-2.78a.23.23 0 0 0-.15.42l3.18 2.84z"/>
+            <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-3 15a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm4-4h-8v-1h8zm0-2h-8v-1h8z"/>
+          </svg>
+        );
+      case 'download':
+        return (
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1.5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        );
+      case 'calendar':
+        return (
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1.5">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+            <line x1="12" y1="14" x2="12" y2="18"></line>
+            <line x1="10" y1="16" x2="14" y2="16"></line>
+          </svg>
+        );
+      default:
+        return (
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1.5">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+        );
+    }
   };
 
   return (
@@ -303,17 +404,46 @@ const EventDetails = () => {
           <p className="text-gray-700">Saturday, May 17, 2025</p>
           <p className="text-gray-600 text-sm">11:30 AM - 3:30 PM (Exhibition)</p>
           <p className="text-gray-600 text-sm">3:30 PM - 4:00 PM (Awards)</p>
-          <a 
-            href={addToCalendarLink()} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1.5">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><line x1="12" y1="14" x2="12" y2="18"></line><line x1="10" y1="16" x2="14" y2="16"></line>
-            </svg>
-            Add to Calendar
-          </a>
+          
+          <div className="relative mt-3" ref={dropdownRef}>
+            {/* Single Calendar Button that opens dropdown */}
+            <button 
+              onClick={() => setIsCalendarDropdownOpen(!isCalendarDropdownOpen)}
+              className="w-full flex items-center justify-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1.5">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Add to Calendar
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            
+            {/* Dropdown Menu */}
+            {isCalendarDropdownOpen && (
+              <div className="absolute z-10 mt-1 w-full bg-white shadow-lg rounded-md ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <div className="py-1">
+                  {calendarOptions.map((option, index) => (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        option.action();
+                        setIsCalendarDropdownOpen(false);
+                      }}
+                      className="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex items-center"
+                    >
+                      {getIcon(option.icon)}
+                      {option.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </DetailCard>
         
         <DetailCard 
