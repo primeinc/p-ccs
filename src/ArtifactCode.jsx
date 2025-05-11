@@ -96,23 +96,21 @@ const KeyContacts = () => {
           ))}
         </div>
         
-        <div className="bg-blue-50 p-4 rounded-lg mt-8 border border-blue-200">
-          <h5 className="font-semibold text-blue-800 mb-2">Influence Network Strategic Insight</h5>
-          <p className="text-gray-700 mb-3 text-sm md:text-base">
+        <div className="bg-gray-100 border border-gray-300 p-4 mt-8">
+          <h4 className="uppercase text-xs tracking-widest mb-3 font-bold text-gray-500 text-left">INFLUENCE NETWORK STRATEGIC INSIGHT</h4>
+          <p className="text-sm text-gray-700 mb-4 text-left">
             Understanding this network of influence is crucial for strategic engagement:
           </p>
-          <ul className="space-y-2 text-gray-700 text-sm md:text-base">
+          <ul className="space-y-2 text-left">
             {[
               "Art teachers are the primary gateway to nomination - they select which student work is submitted to the show",
               "Cathie Williams, as the district arts coordinator, likely influences overall selection guidelines and priorities",
               "School PTAs/PTOs may include arts committee members who advocate for visual arts",
-              "Building positive relationships with these key figures can increase a student\'s chances of having work selected"
+              "Building positive relationships with these key figures can increase a student's chances of having work selected"
             ].map((insight, idx) => (
-              <li key={idx} className="flex items-start">
-                <svg className="h-4 w-4 text-blue-600 mr-2 mt-1 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>{insight}</span>
+              <li key={idx} className="flex items-start gap-2">
+                <input type="checkbox" className="mt-1 flex-shrink-0" />
+                <span className="text-sm text-gray-700">{insight}</span>
               </li>
             ))}
           </ul>
@@ -1461,103 +1459,92 @@ const FAQ = () => {
 
 // Student Success Checklist Component (New)
 const StudentSuccessChecklist = () => {
-  const checklistItems = [
-    {
-      category: "Understanding the Show & Judging",
-      icon: (
-        <svg className="w-6 h-6 text-purple-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-        </svg>
-      ),
-      items: [
-        "Know the key dates: May 17, 2025, 11:30 AM - 4:00 PM at Salem High School.",
-        "Understand teacher nomination is essential - no direct student submissions.",
-        "Familiarize yourself with the 5 judging criteria: Composition, Creativity, Focus, Craftsmanship, Technique.",
-        "Recognize the two judge types: Professional Jurors (technical) and Celebrity Judges (impact/appeal).",
-      ],
-    },
-    {
-      category: "Preparing Your Artwork",
-      icon: (
-        <svg className="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
-        </svg>
-      ),
-      items: [
-        "Focus on originality; avoid AI-generated components.",
-        "Prioritize craftsmanship: neatness, careful media application, clean edges.",
-        "Choose your medium strategically: Mixed media, bright paintings, and oil pastels often do well for younger students.",
-        "Balance technical skill with emotional impact to appeal to both judge types.",
-        "Document your creative process (sketches, photos), especially for digital or complex pieces."
-      ],
-    },
-    {
-      category: "Working with Your Art Teacher",
-      icon: (
-        <svg className="w-6 h-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-        </svg>
-      ),
-      items: [
-        "Build a positive relationship: show enthusiasm, ask questions, participate actively.",
-        "Complete assignments thoroughly and show consistent improvement.",
-        "Understand your teacher is looking for the 5 key judging criteria in your work.",
-        "Seek guidance on improving techniques, not just on getting selected.",
-        "Be mindful of when your teacher might be making selections for the show."
-      ],
-    },
-    {
-      category: "Age-Specific Tips",
-      icon: (
-        <svg className="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
-        </svg>
-      ),
-      items: [
-        "K-3: Focus on joyful, expressive work with bright colors. Excellence awards offer good recognition odds.",
-        "4-6 (Sweet Spot): Balance emerging technical skills with creativity. Aim for understanding art concepts.",
-        "Middle/High School: Higher technical skill expected. Aim for conceptual depth and a distinctive style."
-      ],
-    },
-  ];
-
   return (
     <section className="my-8 md:my-12">
-      <SectionTitle>Student Success Checklist</SectionTitle>
-      <div className="bg-white rounded-lg shadow-md p-4 md:p-6">
-        <p className="text-sm md:text-base text-gray-700 mb-6">
-          Want to get your artwork selected for the P-CCS Art Show? Here's a quick checklist to guide you!
-        </p>
+      <h3 className="text-2xl font-bold mb-6 border-b-2 border-gray-300 pb-2">
+        Student Success Checklist
+      </h3>
+      
+      <div className="bg-white border border-gray-300">
+        {/* Key Event Information */}
+        <div className="border-b border-gray-300 bg-gray-100 p-4 flex justify-between items-center">
+          <span className="font-bold">P-CCS Art Show</span>
+          <span className="font-mono text-sm bg-black text-white px-2 py-1">MAY 17, 2025 · 11:30AM-4:00PM · SALEM HIGH</span>
+        </div>
         
-        {checklistItems.map((categoryItem, catIdx) => (
-          <div key={catIdx} className="mb-6">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="bg-indigo-100 rounded-full p-2 flex-shrink-0">
-                {categoryItem.icon}
-              </div>
-              <h4 className="text-lg md:text-xl font-semibold text-indigo-800">{categoryItem.category}</h4>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {categoryItem.items.map((item, itemIdx) => (
-                <div key={itemIdx} className="bg-white rounded-lg p-3 shadow-sm border border-indigo-100 hover:shadow-md transition-shadow">
-                  <div className="flex items-start">
-                    <div className="bg-green-100 rounded-full p-1 mr-3 flex-shrink-0">
-                      <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
-                    </div>
-                    <p className="text-gray-700 text-sm">{item}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
+        {/* Understanding the Show */}
+        <div className="border-b border-gray-300 p-4">
+          <h4 className="uppercase text-xs tracking-widest mb-3 font-bold text-gray-500 text-left">JUDGING CRITERIA</h4>
+          <ul className="space-y-2 text-left">
+            <li className="flex items-start gap-2">
+              <input type="checkbox" className="mt-1 flex-shrink-0" />
+              <span className="text-left">Confirm teacher nomination required — no direct student submissions permitted</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <input type="checkbox" className="mt-1 flex-shrink-0" />
+              <span className="text-left">Review the 5 judging criteria: Composition, Creativity, Focus, Craftsmanship, Technique</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <input type="checkbox" className="mt-1 flex-shrink-0" />
+              <span className="text-left">Analyze works through both technical (Professional) and impact (Celebrity) judging lenses</span>
+            </li>
+          </ul>
+        </div>
         
-        <div className="mt-6 bg-indigo-50 p-4 rounded-lg text-center border border-indigo-100">
-          <p className="text-indigo-800 text-sm italic">
-            "Remember: The most important thing is to enjoy the creative process and do your best!"
+        {/* Artwork Preparation */}
+        <div className="border-b border-gray-300 p-4">
+          <h4 className="uppercase text-xs tracking-widest mb-3 font-bold text-gray-500 text-left">ARTWORK PREPARATION</h4>
+          <ul className="space-y-2 text-left">
+            <li className="flex items-start gap-2">
+              <input type="checkbox" className="mt-1 flex-shrink-0" />
+              <span className="text-left">Create original work — AI components are disqualified</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <input type="checkbox" className="mt-1 flex-shrink-0" />
+              <span className="text-left">Prioritize craftsmanship: clean edges, controlled application, secure attachments</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <input type="checkbox" className="mt-1 flex-shrink-0" />
+              <span className="text-left">Select strategic medium based on age (Elementary: mixed media, bright paintings, oil pastels)</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <input type="checkbox" className="mt-1 flex-shrink-0" />
+              <span className="text-left">Balance technical execution with emotional impact</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <input type="checkbox" className="mt-1 flex-shrink-0" />
+              <span className="text-left">Document creative process with sketches/photos (essential for digital work)</span>
+            </li>
+          </ul>
+        </div>
+        
+        {/* Teacher Relationship */}
+        <div className="p-4">
+          <h4 className="uppercase text-xs tracking-widest mb-3 font-bold text-gray-500 text-left">TEACHER ENGAGEMENT</h4>
+          <ul className="space-y-2 text-left">
+            <li className="flex items-start gap-2">
+              <input type="checkbox" className="mt-1 flex-shrink-0" />
+              <span className="text-left">Build consistent class participation record before nominations</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <input type="checkbox" className="mt-1 flex-shrink-0" />
+              <span className="text-left">Complete assignments thoroughly; demonstrate improvement over time</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <input type="checkbox" className="mt-1 flex-shrink-0" />
+              <span className="text-left">Ask for technique improvement, not selection preference</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <input type="checkbox" className="mt-1 flex-shrink-0" />
+              <span className="text-left">Identify teacher selection timeframes; ensure work visible during this period</span>
+            </li>
+          </ul>
+        </div>
+        
+        {/* Strategic Framework */}
+        <div className="bg-gray-100 p-4 border-t border-gray-300">
+          <p className="text-sm text-gray-700">
+            <span className="font-bold">CRITICAL PATH:</span> Teacher nomination → Technical excellence → Emotional resonance → Show selection
           </p>
         </div>
       </div>
