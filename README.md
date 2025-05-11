@@ -20,7 +20,7 @@ The site implements comprehensive SEO best practices for a Single Page Applicati
 *   Sitemap.xml and robots.txt for search engine crawling
 *   SPA routing solution compatible with GitHub Pages
 
-See [SEO-IMPROVEMENTS.md](SEO-IMPROVEMENTS.md) for detailed information about the SEO features implemented.
+See [SEO-IMPROVEMENTS.md](./SEO-IMPROVEMENTS.md) for detailed information about the SEO features implemented.
 
 ## Development
 
@@ -76,8 +76,8 @@ The SEO implementation can be validated using:
 ## Additional Tools
 
 The repository also includes Python tools for directory operations:
-*   See [PCCS_TOOLS_README.md](PCCS_TOOLS_README.md) for information about the directory scraper and analysis tools.
+*   See [PCCS_TOOLS_README.md](./PCCS_TOOLS_README.md) for information about the directory scraper and analysis tools located in the `tools/` directory.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.

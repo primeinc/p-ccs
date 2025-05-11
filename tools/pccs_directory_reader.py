@@ -60,7 +60,7 @@ def display_directory(df, format_type='table', output_file=None):
 
 def main():
     parser = argparse.ArgumentParser(description="PCCS Directory Reader Tool")
-    parser.add_argument('--file', default='pccs_directory.csv', help='Path to the directory CSV file')
+    parser.add_argument('--file', default='tools/pccs_directory.csv', help='Path to the directory CSV file')
     parser.add_argument('--name', help='Filter by name (case insensitive)')
     parser.add_argument('--title', help='Filter by title (case insensitive)')
     parser.add_argument('--location', help='Filter by location (case insensitive)')

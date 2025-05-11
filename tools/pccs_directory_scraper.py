@@ -102,9 +102,9 @@ async def run():
     print(f"  Total staff entries: {total_entries}")
     print(f"  Total emails extracted: {total_emails}/{total_entries} ({total_emails/total_entries*100 if total_entries else 0:.1f}%)")
     
-    df.to_csv("pccs_directory.csv", index=False)
-    df.to_json("pccs_directory.json", orient="records", indent=2)
-    print("\n✅ Scraping complete. Data saved to 'pccs_directory.csv' and 'pccs_directory.json'.")
+    df.to_csv("tools/pccs_directory.csv", index=False)
+    df.to_json("tools/pccs_directory.json", orient="records", indent=2)
+    print("\n✅ Scraping complete. Data saved to 'tools/pccs_directory.csv' and 'tools/pccs_directory.json'.")
 
 if __name__ == "__main__":
     asyncio.run(run()) 

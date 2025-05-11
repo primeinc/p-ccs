@@ -11,8 +11,8 @@ A set of Python tools for scraping, processing, and analyzing the Plymouth-Canto
 
 ## Tools
 
-1. **Directory Scraper** (`pccs_directory_scraper.py`) - Scrapes the staff directory from the PCCS website
-2. **Directory Reader** (`pccs_directory_reader.py`) - A utility to read, filter, and display directory data
+1. **Directory Scraper** (`tools/pccs_directory_scraper.py`) - Scrapes the staff directory from the PCCS website
+2. **Directory Reader** (`tools/pccs_directory_reader.py`) - A utility to read, filter, and display directory data
 
 ## Installation
 
@@ -35,13 +35,13 @@ The scraper will collect all staff information from the PCCS directory website, 
 Run the scraper:
 
 ```bash
-python pccs_directory_scraper.py
+python tools/pccs_directory_scraper.py
 ```
 
 This will:
 1. Scrape all 50 pages of the directory (2000 staff entries)
 2. Extract emails using robust DOM-based methods with script parsing fallback
-3. Save the data to both CSV and JSON files
+3. Save the data to both CSV and JSON files in the tools/ directory
 
 ## Directory Reader Usage
 
@@ -49,25 +49,25 @@ The directory reader allows you to work with the CSV data produced by the scrape
 
 ```bash
 # Show all entries in a table format
-python pccs_directory_reader.py
+python tools/pccs_directory_reader.py
 
 # Show summary statistics
-python pccs_directory_reader.py --summary
+python tools/pccs_directory_reader.py --summary
 
 # Filter by name (case insensitive)
-python pccs_directory_reader.py --name "smith"
+python tools/pccs_directory_reader.py --name "smith"
 
 # Filter by title
-python pccs_directory_reader.py --title "principal"
+python tools/pccs_directory_reader.py --title "principal"
 
 # Filter by location
-python pccs_directory_reader.py --location "high school"
+python tools/pccs_directory_reader.py --location "high school"
 
 # Export filtered results to JSON
-python pccs_directory_reader.py --name "smith" --format json --output smiths.json
+python tools/pccs_directory_reader.py --name "smith" --format json --output tools/smiths.json
 
 # Export filtered results to CSV
-python pccs_directory_reader.py --location "elementary" --format csv --output elementary_staff.csv
+python tools/pccs_directory_reader.py --location "elementary" --format csv --output tools/elementary_staff.csv
 ```
 
 ## Examples
@@ -75,19 +75,19 @@ python pccs_directory_reader.py --location "elementary" --format csv --output el
 ### Getting all elementary school principals:
 
 ```bash
-python pccs_directory_reader.py --title "principal" --location "elementary"
+python tools/pccs_directory_reader.py --title "principal" --location "elementary"
 ```
 
 ### Exporting all staff from a specific school:
 
 ```bash
-python pccs_directory_reader.py --location "Plymouth High" --format csv --output plymouth_staff.csv
+python tools/pccs_directory_reader.py --location "Plymouth High" --format csv --output tools/plymouth_staff.csv
 ```
 
 ### Showing directory statistics:
 
 ```bash
-python pccs_directory_reader.py --summary
+python tools/pccs_directory_reader.py --summary
 ```
 
 ## Technical Implementation
