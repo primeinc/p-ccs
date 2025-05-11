@@ -133,6 +133,7 @@ const App = () => {
         <KeyContacts />
         <Participation />
         <JudgingProcess />
+        <StrategicApproaches />
         <StrategyByAge />
         <MediaSelection />
         <SubmissionGuidelines />
@@ -818,57 +819,149 @@ const JudgingProcess = () => {
     { id: 'strategy', title: 'Strategic Insights', content: (
       <div className="text-sm md:text-base">
         <h4 className="text-lg md:text-xl font-semibold text-indigo-800 mb-3 md:mb-4">Strategic Approaches to Judging</h4>
-        <div className="bg-indigo-50 p-3 md:p-4 rounded-lg mb-4 md:mb-6">
-          <h5 className="font-semibold text-indigo-700 mb-1 md:mb-2">The Dual Pathway Advantage</h5>
-          <p className="text-gray-700 text-xs md:text-sm">
-            The show\'s two-tier judging system creates multiple paths to recognition. A piece that might not win a professional juror\'s award based on technical criteria could still receive recognition from a celebrity judge based on emotional impact or thematic relevance.
-          </p>
+        
+        {/* Card for Dual Pathway Advantage */}
+        <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl shadow-md p-5 mb-6 border border-indigo-100">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
+            <div className="bg-indigo-100 rounded-full p-3 flex-shrink-0">
+              <svg className="w-7 h-7 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div>
+              <h5 className="font-semibold text-indigo-800 text-lg mb-2">The Dual Pathway Advantage</h5>
+              <p className="text-gray-700 text-sm md:text-base">
+                The show's two-tier judging system creates multiple paths to recognition. A piece that might not win a professional juror's award based on technical criteria could still receive recognition from a celebrity judge based on emotional impact or thematic relevance.
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="space-y-3 md:space-y-4">
-          <div className="pl-3 md:pl-4 border-l-4 border-green-300">
-            <h5 className="font-semibold text-green-700">Professional Appeal Strategy</h5>
-            <p className="text-gray-700 mb-1 md:mb-2 text-xs md:text-sm">For technical recognition from professional jurors:</p>
-            <ul className="list-disc pl-4 md:pl-6 text-gray-700 space-y-1 text-xs md:text-sm">
-              <li>Focus on demonstrating mastery of art elements and principles</li>
-              <li>Ensure precision in execution and craftsmanship</li>
-              <li>Show conceptual depth and thoughtful development</li>
-              <li>Demonstrate appropriate technique for your chosen medium</li>
-              <li>Align with Michigan Academic Standards for visual arts</li>
-            </ul>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+          {/* Professional Appeal Strategy Card */}
+          <div className="bg-white rounded-xl overflow-hidden shadow-md border border-green-100 transition-transform hover:scale-[1.01] duration-200">
+            <div className="bg-gradient-to-r from-green-500 to-green-600 px-4 py-3 flex items-center gap-2">
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+              <h5 className="font-semibold text-white text-base md:text-lg">Professional Appeal Strategy</h5>
+            </div>
+            <div className="p-4">
+              <p className="text-gray-700 mb-2 text-sm">For technical recognition from professional jurors:</p>
+              <ul className="space-y-2">
+                {[
+                  "Focus on demonstrating mastery of art elements and principles",
+                  "Ensure precision in execution and craftsmanship",
+                  "Show conceptual depth and thoughtful development",
+                  "Demonstrate appropriate technique for your chosen medium",
+                  "Align with Michigan Academic Standards for visual arts"
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-2 text-sm">
+                    <svg className="h-5 w-5 text-green-500 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                    </svg>
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div className="pl-3 md:pl-4 border-l-4 border-blue-300">
-            <h5 className="font-semibold text-blue-700">Celebrity Appeal Strategy</h5>
-            <p className="text-gray-700 mb-1 md:mb-2 text-xs md:text-sm">For recognition from celebrity judges:</p>
-            <ul className="list-disc pl-4 md:pl-6 text-gray-700 space-y-1 text-xs md:text-sm">
-              <li>Create pieces with immediate visual impact and emotional resonance</li>
-              <li>Consider local connections or community-relevant themes</li>
-              <li>Focus on storytelling elements that connect with viewers</li>
-              <li>Use vibrant colors and distinctive approaches that stand out</li>
-              <li>Create work that demonstrates the P-CCS Learner Profile traits (innovator, communicator, etc.)</li>
-            </ul>
+
+          {/* Celebrity Appeal Strategy Card */}
+          <div className="bg-white rounded-xl overflow-hidden shadow-md border border-blue-100 transition-transform hover:scale-[1.01] duration-200">
+            <div className="bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-3 flex items-center gap-2">
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+              <h5 className="font-semibold text-white text-base md:text-lg">Celebrity Appeal Strategy</h5>
+            </div>
+            <div className="p-4">
+              <p className="text-gray-700 mb-2 text-sm">For recognition from celebrity judges:</p>
+              <ul className="space-y-2">
+                {[
+                  "Create pieces with immediate visual impact and emotional resonance",
+                  "Consider local connections or community-relevant themes",
+                  "Focus on storytelling elements that connect with viewers",
+                  "Use vibrant colors and distinctive approaches that stand out",
+                  "Create work that demonstrates the P-CCS Learner Profile traits"
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-2 text-sm">
+                    <svg className="h-5 w-5 text-blue-500 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                    </svg>
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div className="pl-3 md:pl-4 border-l-4 border-purple-300">
-            <h5 className="font-semibold text-purple-700">Optimal Strategy: Balanced Approach</h5>
-            <p className="text-gray-700 text-xs md:text-sm">
-              The most successful strategy combines elements that appeal to both judging tracks: technically excellent 
-              execution that demonstrates skill (for professional jurors) with emotionally resonant subject matter 
-              or unique perspective (for celebrity judges). Creating work that authentically embodies both qualities 
-              maximizes recognition opportunities.
-            </p>
+        </div>
+
+        {/* Optimal Strategy Card */}
+        <div className="bg-white rounded-xl shadow-md overflow-hidden border border-purple-100 mb-6 transition-transform hover:scale-[1.01] duration-200">
+          <div className="bg-gradient-to-r from-purple-500 to-purple-600 px-4 py-3 flex items-center gap-2">
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+            </svg>
+            <h5 className="font-semibold text-white text-base md:text-lg">Optimal Strategy: Balanced Approach</h5>
           </div>
-          <div className="pl-3 md:pl-4 border-l-4 border-red-300 mt-4 md:mt-6">
-            <h5 className="font-semibold text-red-700">Artwork Documentation Strategy</h5>
-            <p className="text-gray-700 mb-1 md:mb-2 text-xs md:text-sm">For any digital or complex artwork:</p>
-            <ul className="list-disc pl-4 md:pl-6 text-gray-700 space-y-1 text-xs md:text-sm">
-              <li>Document your creative process with preliminary sketches or development photos</li>
-              <li>Prepare a concise artist statement that articulates your concept and process</li>
-              <li>Be prepared to explain how your work demonstrates originality</li>
-              <li>Focus on how human creativity guided any digital tools used</li>
+          <div className="p-4">
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="md:w-2/3">
+                <p className="text-gray-700 text-sm">
+                  The most successful strategy combines elements that appeal to both judging tracks: technically excellent 
+                  execution that demonstrates skill (for professional jurors) with emotionally resonant subject matter 
+                  or unique perspective (for celebrity judges). Creating work that authentically embodies both qualities 
+                  maximizes recognition opportunities.
+                </p>
+              </div>
+              <div className="md:w-1/3 flex justify-center">
+                <div className="bg-purple-50 rounded-lg p-3 text-center h-min">
+                  <div className="text-2xl mb-1">🏆</div>
+                  <div className="text-purple-800 font-medium text-sm">Higher Recognition Potential</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Documentation Strategy Card */}
+        <div className="bg-white rounded-xl shadow-md overflow-hidden border border-red-100 transition-transform hover:scale-[1.01] duration-200">
+          <div className="bg-gradient-to-r from-red-500 to-red-600 px-4 py-3 flex items-center gap-2">
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <h5 className="font-semibold text-white text-base md:text-lg">Artwork Documentation Strategy</h5>
+          </div>
+          <div className="p-4">
+            <p className="text-gray-700 mb-2 text-sm">For any digital or complex artwork:</p>
+            <ul className="space-y-2 mb-3">
+              {[
+                "Document your creative process with preliminary sketches or development photos",
+                "Prepare a concise artist statement that articulates your concept and process",
+                "Be prepared to explain how your work demonstrates originality",
+                "Focus on how human creativity guided any digital tools used"
+              ].map((item, index) => (
+                <li key={index} className="flex items-start gap-2 text-sm">
+                  <svg className="h-5 w-5 text-red-500 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                  </svg>
+                  <span className="text-gray-700">{item}</span>
+                </li>
+              ))}
             </ul>
-            <p className="text-gray-600 italic text-xs mt-1 md:mt-2">
-              Note: P-CCS-affiliated arts programs do not accept artwork with AI components, so documentation 
-              of your human-driven creative process is essential.
-            </p>
+            <div className="bg-red-50 p-3 rounded-lg">
+              <p className="text-red-800 text-xs font-medium flex items-center gap-1">
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Important Note:
+              </p>
+              <p className="text-gray-700 text-xs mt-1">
+                P-CCS-affiliated arts programs do not accept artwork with AI components, so documentation 
+                of your human-driven creative process is essential.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -1574,6 +1667,167 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+  );
+};
+
+// Strategic Approaches Component (New)
+const StrategicApproaches = () => {
+  return (
+    <section className="my-8 md:my-12">
+      <SectionTitle>Strategic Approaches to Judging</SectionTitle>
+      
+      {/* Dual Pathway Card */}
+      <div className="mb-8 bg-white rounded-xl overflow-hidden shadow-lg border border-indigo-100">
+        <div className="bg-gradient-to-r from-indigo-600 to-indigo-700 px-5 py-4">
+          <h4 className="text-white text-xl font-semibold">The Dual Pathway Advantage</h4>
+        </div>
+        <div className="p-5 bg-gradient-to-b from-indigo-50 to-white">
+          <p className="text-gray-700">
+            The show's two-tier judging system creates multiple paths to recognition. A piece that might not win a 
+            professional juror's award based on technical criteria could still receive recognition from a celebrity judge 
+            based on emotional impact or thematic relevance.
+          </p>
+        </div>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        {/* Professional Appeal Strategy Card */}
+        <div className="bg-white rounded-xl overflow-hidden shadow-lg border-l-4 border-green-500 hover:shadow-xl transition-shadow duration-300">
+          <div className="p-5">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-green-100 p-2.5 rounded-lg">
+                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+              </div>
+              <h5 className="text-lg font-semibold text-green-700">Professional Appeal Strategy</h5>
+            </div>
+            <p className="text-gray-600 mb-3 font-medium">For technical recognition from professional jurors:</p>
+            <ul className="space-y-2.5">
+              {[
+                "Focus on demonstrating mastery of art elements and principles",
+                "Ensure precision in execution and craftsmanship",
+                "Show conceptual depth and thoughtful development",
+                "Demonstrate appropriate technique for your chosen medium",
+                "Align with Michigan Academic Standards for visual arts"
+              ].map((item, index) => (
+                <li key={index} className="flex items-start gap-2.5">
+                  <span className="inline-flex items-center justify-center flex-shrink-0 w-5 h-5 bg-green-100 text-green-600 rounded-full">
+                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                    </svg>
+                  </span>
+                  <span className="text-gray-700">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        
+        {/* Celebrity Appeal Strategy Card */}
+        <div className="bg-white rounded-xl overflow-hidden shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition-shadow duration-300">
+          <div className="p-5">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-blue-100 p-2.5 rounded-lg">
+                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <h5 className="text-lg font-semibold text-blue-700">Celebrity Appeal Strategy</h5>
+            </div>
+            <p className="text-gray-600 mb-3 font-medium">For recognition from celebrity judges:</p>
+            <ul className="space-y-2.5">
+              {[
+                "Create pieces with immediate visual impact and emotional resonance",
+                "Consider local connections or community-relevant themes",
+                "Focus on storytelling elements that connect with viewers",
+                "Use vibrant colors and distinctive approaches that stand out",
+                "Create work that demonstrates the P-CCS Learner Profile traits (innovator, communicator, etc.)"
+              ].map((item, index) => (
+                <li key={index} className="flex items-start gap-2.5">
+                  <span className="inline-flex items-center justify-center flex-shrink-0 w-5 h-5 bg-blue-100 text-blue-600 rounded-full">
+                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                    </svg>
+                  </span>
+                  <span className="text-gray-700">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      {/* Optimal Strategy Card */}
+      <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-purple-200 mb-8 hover:shadow-xl transition-shadow duration-300">
+        <div className="bg-gradient-to-r from-purple-100 to-purple-50 px-5 py-4 border-b border-purple-200">
+          <h5 className="text-lg font-semibold text-purple-800 flex items-center gap-2">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+            </svg>
+            Optimal Strategy: Balanced Approach
+          </h5>
+        </div>
+        <div className="p-5">
+          <p className="text-gray-700 mb-4">
+            The most successful strategy combines elements that appeal to both judging tracks: technically excellent 
+            execution that demonstrates skill (for professional jurors) with emotionally resonant subject matter or unique 
+            perspective (for celebrity judges). Creating work that authentically embodies both qualities maximizes recognition 
+            opportunities.
+          </p>
+          
+          <div className="bg-purple-50 rounded-lg p-4 flex items-center justify-center gap-3 max-w-md mx-auto">
+            <div className="text-2xl">🏆</div>
+            <p className="text-purple-800 font-medium">Higher chances for recognition across all judge categories</p>
+          </div>
+        </div>
+      </div>
+      
+      {/* Documentation Strategy Card */}
+      <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-red-200 hover:shadow-xl transition-shadow duration-300">
+        <div className="bg-gradient-to-r from-red-100 to-red-50 px-5 py-4 border-b border-red-200">
+          <h5 className="text-lg font-semibold text-red-800 flex items-center gap-2">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            Artwork Documentation Strategy
+          </h5>
+        </div>
+        <div className="p-5">
+          <p className="text-gray-600 mb-3 font-medium">For any digital or complex artwork:</p>
+          <ul className="space-y-2.5 mb-4">
+            {[
+              "Document your creative process with preliminary sketches or development photos",
+              "Prepare a concise artist statement that articulates your concept and process",
+              "Be prepared to explain how your work demonstrates originality",
+              "Focus on how human creativity guided any digital tools used"
+            ].map((item, index) => (
+              <li key={index} className="flex items-start gap-2.5">
+                <span className="inline-flex items-center justify-center flex-shrink-0 w-5 h-5 bg-red-100 text-red-600 rounded-full">
+                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                  </svg>
+                </span>
+                <span className="text-gray-700">{item}</span>
+              </li>
+            ))}
+          </ul>
+          
+          <div className="bg-red-50 border-l-4 border-red-400 p-4">
+            <div className="flex items-center gap-2 mb-1">
+              <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <p className="font-semibold text-red-700">Important Note:</p>
+            </div>
+            <p className="text-gray-700 text-sm">
+              P-CCS-affiliated arts programs do not accept artwork with AI components, so documentation 
+              of your human-driven creative process is essential.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
