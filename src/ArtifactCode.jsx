@@ -3,10 +3,13 @@ import React from 'react';
 
 // KeyContacts Component
 const KeyContacts = () => {
+  const [expandedContact, setExpandedContact] = useState(null);
+  const [hoveredInsight, setHoveredInsight] = useState(null);
+  
   const contacts = [
     {
       category: "District Leadership",
-      categoryBg: "bg-indigo-600",
+      categoryBg: "bg-gradient-to-r from-indigo-600 to-indigo-700",
       categoryText: "text-white",
       individuals: [
         {
@@ -30,7 +33,7 @@ const KeyContacts = () => {
     },
     {
       category: "Art Teachers",
-      categoryBg: "bg-teal-600",
+      categoryBg: "bg-gradient-to-r from-teal-600 to-teal-700",
       categoryText: "text-white",
       individuals: [
         {
@@ -59,65 +62,190 @@ const KeyContacts = () => {
     }
   ];
 
+  const toggleContact = (groupIndex, contactIndex) => {
+    const contactId = `${groupIndex}-${contactIndex}`;
+    setExpandedContact(expandedContact === contactId ? null : contactId);
+  };
+
   return (
-    <section className="my-4 md:my-8">
+    <section className="my-8 md:my-12 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-indigo-50/30 to-transparent h-64 rounded-3xl -z-10"></div>
       <SectionTitle>Key Contacts & Influence Network</SectionTitle>
       
-      <div className="bg-white rounded-lg shadow-md p-2 md:p-4">
-        <p className="mb-3 text-gray-700 text-xs md:text-sm">
-          Understanding the key decision-makers in the P-CCS art education network can help students and parents 
-          navigate the art show process more effectively. Here are the most influential figures identified through research.
-        </p>
+      <div className="bg-gradient-to-br from-white to-indigo-50 rounded-xl shadow-lg p-4 md:p-6 border border-indigo-100">
+        <div className="mb-6 max-w-3xl mx-auto text-center">
+          <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+            Understanding the key decision-makers in the P-CCS art education network can help students and parents 
+            navigate the art show process more effectively. Here are the most influential figures identified through research.
+          </p>
+          <div className="mt-4 inline-flex items-center text-xs text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full animate-pulse">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Tip: Click on a contact card to expand details
+          </div>
+        </div>
         
-        <div className="space-y-3">
+        <div className="space-y-6">
           {contacts.map((group, groupIndex) => (
-            <div key={groupIndex} className="rounded-lg overflow-hidden border border-gray-200">
-              <div className={`${group.categoryBg} px-2 py-1`}>
-                <h4 className={`font-semibold text-sm ${group.categoryText}`}>{group.category}</h4>
+            <div key={groupIndex} className="rounded-xl overflow-hidden shadow-md border border-gray-200 transform transition-all duration-300 hover:shadow-lg bg-white backdrop-blur-sm bg-opacity-95">
+              <div className={`${group.categoryBg} px-4 py-3 flex items-center`}>
+                <div className="mr-3 bg-white/20 p-2 rounded-full">
+                  {group.category === "District Leadership" ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                  )}
+                </div>
+                <h4 className={`font-semibold text-base md:text-lg ${group.categoryText}`}>{group.category}</h4>
               </div>
-              <div className="p-2 space-y-2">
-                {group.individuals.map((contact, contactIndex) => (
-                  <div key={contactIndex} className="bg-gray-50 p-2 rounded-md border border-gray-100">
-                    <div className="flex flex-col md:flex-row md:flex-wrap md:items-center">
-                      <h5 className="font-medium text-indigo-800 text-sm md:text-base mr-2">{contact.name}</h5>
-                      {contact.role && <p className="text-gray-700 text-xs"><span className="font-medium">Role:</span> {contact.role}</p>}
+              <div className="p-4 md:p-5 bg-white divide-y divide-gray-100">
+                {group.individuals.map((contact, contactIndex) => {
+                  const contactId = `${groupIndex}-${contactIndex}`;
+                  const isExpanded = expandedContact === contactId;
+                  
+                  return (
+                    <div 
+                      key={contactIndex} 
+                      className={`group transition-all duration-300 ${contactIndex > 0 ? 'pt-4 mt-4' : ''}`}
+                    >
+                      <div 
+                        onClick={() => toggleContact(groupIndex, contactIndex)}
+                        className={`cursor-pointer p-4 rounded-lg ${isExpanded ? 'bg-indigo-50 shadow-md ring-1 ring-indigo-200' : 'bg-gray-50 hover:bg-indigo-50/50'} border border-gray-100 transition-all duration-300 transform ${isExpanded ? 'scale-[1.01]' : 'hover:scale-[1.005]'}`}
+                      >
+                        <div className="flex flex-col md:flex-row md:items-center justify-between">
+                          <div className="flex items-center">
+                            <div className={`h-10 w-10 rounded-full flex items-center justify-center mr-3 text-white font-medium shadow-md ${group.category === "District Leadership" ? 'bg-gradient-to-br from-indigo-600 to-indigo-700' : 'bg-gradient-to-br from-teal-600 to-teal-700'}`}>
+                              {contact.name.charAt(0)}
+                            </div>
+                            <h5 className="font-bold text-indigo-900 text-lg md:text-xl">{contact.name}</h5>
+                          </div>
+                          
+                          <div className="mt-2 md:mt-0 flex items-center">
+                            {contact.role && 
+                              <div className="inline-flex items-center bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs md:text-sm font-medium mr-2">
+                                {contact.role}
+                              </div>
+                            }
+                            <div className={`transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-400 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 overflow-hidden transition-all duration-300 ease-in-out ${isExpanded ? 'mt-4 max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                          <div className="space-y-3">
+                            {contact.schools && (
+                              <div className="flex items-center bg-white p-3 rounded-lg shadow-sm hover:shadow transition-shadow duration-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                                  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                                </svg>
+                                <div>
+                                  <div className="text-xs text-indigo-600 font-medium uppercase">Schools</div>
+                                  <div className="text-sm text-gray-700">{contact.schools}</div>
+                                </div>
+                              </div>
+                            )}
+                            
+                            {contact.school && (
+                              <div className="flex items-center bg-white p-3 rounded-lg shadow-sm hover:shadow transition-shadow duration-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                </svg>
+                                <div>
+                                  <div className="text-xs text-indigo-600 font-medium uppercase">School</div>
+                                  <div className="text-sm text-gray-700">{contact.school}</div>
+                                </div>
+                              </div>
+                            )}
+                            
+                            {contact.email && (
+                              <div className="flex items-center bg-white p-3 rounded-lg shadow-sm hover:shadow transition-shadow duration-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                <div>
+                                  <div className="text-xs text-indigo-600 font-medium uppercase">Email</div>
+                                  <a href={`mailto:${contact.email}`} className="text-sm text-indigo-600 hover:text-indigo-800 hover:underline transition-colors">
+                                    {contact.email}
+                                  </a>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                          
+                          {contact.description && (
+                            <div className="bg-white p-4 rounded-lg shadow-sm border border-indigo-100 hover:shadow transition-all duration-200">
+                              <div className="text-xs text-indigo-600 font-medium uppercase mb-1">About</div>
+                              <div className="text-sm text-gray-700 leading-relaxed">
+                                {contact.description}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex flex-col md:flex-row md:flex-wrap text-xs gap-2 mt-1">
-                      {contact.schools && <p className="text-gray-700"><span className="font-medium">Schools:</span> {contact.schools}</p>}
-                      {contact.school && <p className="text-gray-700"><span className="font-medium">School:</span> {contact.school}</p>}
-                      {contact.email && (
-                        <p className="text-gray-700">
-                          <span className="font-medium">Email:</span> 
-                          <a href={`mailto:${contact.email}`} className="text-indigo-600 hover:underline ml-1">{contact.email}</a>
-                        </p>
-                      )}
-                    </div>
-                    {contact.description && <p className="text-gray-600 text-xs mt-1">{contact.description}</p>}
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           ))}
         </div>
         
-        <div className="bg-gray-100 border border-gray-300 p-2 mt-4">
-          <h4 className="uppercase text-xs tracking-widest mb-1 font-bold text-gray-500 text-left">INFLUENCE NETWORK STRATEGIC INSIGHT</h4>
-          <p className="text-xs text-gray-700 mb-2 text-left">
+        <div className="mt-8 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-xl p-5 shadow-md border border-indigo-200">
+          <div className="flex items-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-700 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <h4 className="uppercase text-sm tracking-wider font-bold text-indigo-700">INFLUENCE NETWORK STRATEGIC INSIGHT</h4>
+          </div>
+          
+          <p className="text-sm text-indigo-900 mb-4 font-medium">
             Understanding this network of influence is crucial for strategic engagement:
           </p>
-          <ul className="space-y-1 text-left">
+          
+          <ul className="space-y-3">
             {[
               "Art teachers are the primary gateway to nomination - they select which student work is submitted to the show",
               "Cathie Williams, as the district arts coordinator, likely influences overall selection guidelines and priorities",
               "School PTAs/PTOs may include arts committee members who advocate for visual arts",
               "Building positive relationships with these key figures can increase a student's chances of having work selected"
             ].map((insight, idx) => (
-              <li key={idx} className="flex items-start gap-1">
-                <input type="checkbox" className="mt-0.5 flex-shrink-0 w-3 h-3" />
-                <span className="text-xs text-gray-700">{insight}</span>
+              <li 
+                key={idx} 
+                className="flex items-start gap-3 bg-white/50 p-3 rounded-lg border border-indigo-100 shadow-sm hover:shadow-md hover:bg-white/80 transition-all duration-200 transform hover:translate-x-1"
+                onMouseEnter={() => setHoveredInsight(idx)}
+                onMouseLeave={() => setHoveredInsight(null)}
+              >
+                <div className="flex-shrink-0 mt-0.5">
+                  <div className={`h-6 w-6 rounded-full flex items-center justify-center text-white font-medium text-xs transition-all duration-300 ${hoveredInsight === idx ? 'bg-indigo-700 scale-110' : 'bg-gradient-to-br from-indigo-600 to-indigo-700'}`}>
+                    {idx + 1}
+                  </div>
+                </div>
+                <span className="text-sm text-gray-800">{insight}</span>
               </li>
             ))}
           </ul>
+          
+          <div className="mt-6 bg-white/60 p-4 rounded-lg border border-purple-100 shadow-sm">
+            <div className="flex items-center text-purple-800">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+              <p className="text-xs font-semibold">PRO TIP</p>
+            </div>
+            <p className="text-sm text-gray-700 mt-1">
+              Consider attending P-CCS arts events throughout the year to establish connections with key decision-makers in a natural, supportive context.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -835,7 +963,9 @@ const JudgingProcess = () => {
             <div>
               <h5 className="font-semibold text-indigo-800 text-lg mb-2">The Dual Pathway Advantage</h5>
               <p className="text-gray-700 text-sm md:text-base">
-                The show's two-tier judging system creates multiple paths to recognition. A piece that might not win a professional juror's award based on technical criteria could still receive recognition from a celebrity judge based on emotional impact or thematic relevance.
+                The show's two-tier judging system creates multiple paths to recognition. A piece that might not win a 
+                professional juror's award based on technical criteria could still receive recognition from a celebrity judge 
+                based on emotional impact or thematic relevance.
               </p>
             </div>
           </div>
