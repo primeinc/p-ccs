@@ -683,88 +683,269 @@ const Participation = () => {
   const tabs = [
     { id: 'schools', title: 'Schools', content: (
       <div>
-        <h4 className="text-lg md:text-xl font-semibold text-indigo-800 mb-3 md:mb-4">Participating Schools</h4>
-        <p className="mb-3 md:mb-4 text-sm md:text-base">The Annual P-CCS K-12 Art Show features artwork from students across all Plymouth-Canton Community Schools, including:</p>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 list-disc list-inside text-gray-700 text-sm md:text-base">
-          <li>Early Childhood Centers</li>
-          <li>Elementary Schools</li>
-          <li>Middle Schools</li>
-          <li>High Schools at P-CEP</li>
-        </ul>
-        <p className="mt-3 md:mt-4 text-gray-600 italic text-xs md:text-sm">All buildings in the P-CCS district are represented in this showcase, with approximately 2,000 student artworks selected for display.</p>
+        <h4 className="text-lg md:text-xl font-semibold text-indigo-800 mb-4 md:mb-6 pb-2 border-b border-indigo-100">Participating Schools</h4>
+        <p className="mb-4 md:mb-6 text-sm md:text-base">The Annual P-CCS K-12 Art Show features artwork from students across all Plymouth-Canton Community Schools, including:</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+          <div className="bg-gradient-to-br from-purple-50 to-indigo-50 p-4 rounded-lg shadow-sm border border-indigo-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <h5 className="font-semibold text-indigo-800 mb-1">Early Childhood Centers</h5>
+            <p className="text-xs text-gray-600">Our youngest artists</p>
+          </div>
+          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-lg shadow-sm border border-indigo-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <h5 className="font-semibold text-indigo-800 mb-1">Elementary Schools</h5>
+            <p className="text-xs text-gray-600">Foundation builders</p>
+          </div>
+          <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-4 rounded-lg shadow-sm border border-indigo-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L15.828 15H13v-2.828l8.586-8.586z" />
+              </svg>
+            </div>
+            <h5 className="font-semibold text-indigo-800 mb-1">Middle Schools</h5>
+            <p className="text-xs text-gray-600">Creative explorers</p>
+          </div>
+          <div className="bg-gradient-to-br from-indigo-100 to-purple-100 p-4 rounded-lg shadow-sm border border-indigo-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+              </svg>
+            </div>
+            <h5 className="font-semibold text-indigo-800 mb-1">High Schools at P-CEP</h5>
+            <p className="text-xs text-gray-600">Advanced creators</p>
+          </div>
+        </div>
+        <div className="bg-white p-4 rounded-lg border border-indigo-100 shadow-sm mt-4">
+          <div className="flex items-center">
+            <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center mr-3 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <p className="text-gray-700 text-sm">All buildings in the P-CCS district are represented in this showcase, with <span className="font-semibold text-indigo-700">approximately 2,000 student artworks</span> selected for display.</p>
+          </div>
+        </div>
       </div>
     )},
     { id: 'students', title: 'Student Involvement', content: (
       <div>
-        <h4 className="text-lg md:text-xl font-semibold text-indigo-800 mb-3 md:mb-4">Student Involvement</h4>
-        <div className="space-y-3 md:space-y-4 text-sm md:text-base">
-          <p>Students from kindergarten through 12th grade participate in this district-wide celebration of creativity. Key aspects of student involvement include:</p>
-          <div className="pl-3 md:pl-4 border-l-4 border-indigo-200">
-            <h5 className="font-semibold text-indigo-700">Selection Process</h5>
-            <p className="text-gray-700">Art teachers from each school nominate outstanding pieces for inclusion in the show. This is the primary pathway to participation.</p>
+        <h4 className="text-lg md:text-xl font-semibold text-indigo-800 mb-4 md:mb-6 pb-2 border-b border-indigo-100">Student Involvement</h4>
+        <p className="mb-6 text-sm md:text-base">Students from kindergarten through 12th grade participate in this district-wide celebration of creativity. Key aspects of student involvement include:</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div className="bg-white rounded-lg shadow-sm p-5 border-t-4 border-indigo-400 hover:shadow-md transition-shadow">
+            <div className="flex items-center mb-3">
+              <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h5 className="font-semibold text-indigo-700">Selection Process</h5>
+            </div>
+            <p className="text-gray-700 text-sm">Art teachers from each school nominate outstanding pieces for inclusion in the show. This is the primary pathway to participation.</p>
           </div>
-          <div className="pl-3 md:pl-4 border-l-4 border-indigo-200">
-            <h5 className="font-semibold text-indigo-700">Live Demonstrations</h5>
-            <p className="text-gray-700">High school students showcase their artistic process in various disciplines including drawing, painting, ceramics, photography, metals, fashion, and digital art.</p>
+          <div className="bg-white rounded-lg shadow-sm p-5 border-t-4 border-purple-400 hover:shadow-md transition-shadow">
+            <div className="flex items-center mb-3">
+              <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                </svg>
+              </div>
+              <h5 className="font-semibold text-purple-700">Live Demonstrations</h5>
+            </div>
+            <p className="text-gray-700 text-sm">High school students showcase their artistic process in various disciplines including drawing, painting, ceramics, photography, metals, fashion, and digital art.</p>
           </div>
-          <div className="pl-3 md:pl-4 border-l-4 border-indigo-200">
-            <h5 className="font-semibold text-indigo-700">Participation Scale</h5>
-            <p className="text-gray-700">This major district event features approximately 2,000 artworks selected from students across all schools.</p>
+          <div className="bg-white rounded-lg shadow-sm p-5 border-t-4 border-blue-400 hover:shadow-md transition-shadow">
+            <div className="flex items-center mb-3">
+              <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h5 className="font-semibold text-blue-700">Participation Scale</h5>
+            </div>
+            <p className="text-gray-700 text-sm">This major district event features approximately 2,000 artworks selected from students across all schools.</p>
           </div>
+        </div>
+        <div className="bg-gradient-to-r from-indigo-50 via-purple-50 to-indigo-50 p-4 rounded-lg border border-indigo-100 shadow-sm flex items-center">
+          <div className="text-3xl mr-3">🎨</div>
+          <p className="text-gray-700 text-sm italic">Every participant contributes to the vibrant tapestry of student creativity that defines the P-CCS Art Show experience.</p>
         </div>
       </div>
     )},
     { id: 'eligibility', title: 'Eligibility', content: (
       <div className="text-sm md:text-base">
-        <h4 className="text-lg md:text-xl font-semibold text-indigo-800 mb-3 md:mb-4">Eligibility Requirements</h4>
-        <div className="mb-4 md:mb-6">
-          <h5 className="font-semibold text-indigo-700 mb-2">Who Can Participate?</h5>
-          <p className="text-gray-700 mb-3">Participation is limited to students currently enrolled in Plymouth-Canton Community Schools. The central requirement is that artwork must be nominated by a P-CCS art teacher.</p>
-          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 md:p-4 text-gray-700 mb-3 md:mb-4 text-xs md:text-sm">
-            <p className="font-medium">Important Note:</p>
-            <p>The nomination process is teacher-driven. There is no method for students or parents to directly submit artwork to the show without teacher selection.</p>
+        <h4 className="text-lg md:text-xl font-semibold text-indigo-800 mb-4 md:mb-6 pb-2 border-b border-indigo-100">Eligibility Requirements</h4>
+        
+        <div className="bg-white rounded-lg shadow-sm overflow-hidden mb-6">
+          <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-5 py-3">
+            <h5 className="font-semibold text-white">Who Can Participate?</h5>
+          </div>
+          <div className="p-5">
+            <div className="flex items-start mb-4">
+              <div className="mt-1 mr-3 text-indigo-500">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <p className="text-gray-700">Participation is limited to students currently enrolled in Plymouth-Canton Community Schools. The central requirement is that artwork must be nominated by a P-CCS art teacher.</p>
+            </div>
+            
+            <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg flex items-start">
+              <div className="text-amber-500 mt-0.5 mr-3 flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+              </div>
+              <div>
+                <p className="font-medium text-amber-800 mb-1">Important Note:</p>
+                <p className="text-gray-700 text-xs">The nomination process is teacher-driven. There is no method for students or parents to directly submit artwork to the show without teacher selection.</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <h5 className="font-semibold text-indigo-700 mb-2">Originality Requirements</h5>
-          <p className="text-gray-700 mb-3">While specific rules for the 2025 show have not been published, P-CCS places a high value on originality:</p>
-          <ul className="list-disc pl-4 md:pl-6 mb-3 md:mb-4 text-gray-700 space-y-1 md:space-y-2">
-            <li>P-CCS affiliated scholarships explicitly state they do not accept pieces with AI components</li>
-            <li>All artwork is expected to be the original creation of the student</li>
-            <li>Artwork should be appropriate for a family-friendly, educational environment</li>
-          </ul>
-          <p className="text-gray-600 italic text-xs md:text-sm">Students are encouraged to document their creative process, which may include preliminary sketches and in-progress photos.</p>
+        
+        <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-3">
+            <h5 className="font-semibold text-white">Originality Requirements</h5>
+          </div>
+          <div className="p-5">
+            <p className="text-gray-700 mb-4">While specific rules for the 2025 show have not been published, P-CCS places a high value on originality:</p>
+            <div className="space-y-3 mb-4">
+              <div className="flex items-start">
+                <div className="bg-indigo-100 p-1 rounded-full mr-3 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p className="text-gray-700">P-CCS affiliated scholarships explicitly state they do not accept pieces with AI components</p>
+              </div>
+              <div className="flex items-start">
+                <div className="bg-indigo-100 p-1 rounded-full mr-3 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p className="text-gray-700">All artwork is expected to be the original creation of the student</p>
+              </div>
+              <div className="flex items-start">
+                <div className="bg-indigo-100 p-1 rounded-full mr-3 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p className="text-gray-700">Artwork should be appropriate for a family-friendly, educational environment</p>
+              </div>
+            </div>
+            <div className="flex items-center bg-indigo-50 p-3 rounded-lg">
+              <span className="text-2xl mr-2">📝</span>
+              <p className="text-gray-700 text-xs italic">Students are encouraged to document their creative process, which may include preliminary sketches and in-progress photos.</p>
+            </div>
+          </div>
         </div>
       </div>
     )},
     { id: 'awards', title: 'Awards', content: (
       <div className="text-sm md:text-base">
-        <h4 className="text-lg md:text-xl font-semibold text-indigo-800 mb-3 md:mb-4">Recognition & Awards</h4>
-        <div className="space-y-3 md:space-y-4">
-          <div className="bg-indigo-50 p-3 md:p-4 rounded-lg">
-            <h5 className="font-semibold text-indigo-700">Certificates of Recognition</h5>
+        <h4 className="text-lg md:text-xl font-semibold text-indigo-800 mb-4 md:mb-6 pb-2 border-b border-indigo-100">Recognition & Awards</h4>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-lg shadow-sm p-5 border border-indigo-100 hover:shadow-md transition-shadow">
+            <div className="flex items-center mb-3">
+              <div className="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4 flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                </svg>
+              </div>
+              <h5 className="font-semibold text-indigo-800">Certificates of Recognition</h5>
+            </div>
             <p className="text-gray-700">Every student whose artwork is entered by their art teacher receives a certificate of recognition.</p>
           </div>
-          <div className="bg-indigo-50 p-3 md:p-4 rounded-lg">
-            <h5 className="font-semibold text-indigo-700">Age-Level Competition</h5>
+          
+          <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg shadow-sm p-5 border border-purple-100 hover:shadow-md transition-shadow">
+            <div className="flex items-center mb-3">
+              <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4 flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
+                </svg>
+              </div>
+              <h5 className="font-semibold text-purple-800">Age-Level Competition</h5>
+            </div>
             <p className="text-gray-700">Submitted artwork is entered in competitions organized by age group, providing a fair evaluation framework.</p>
           </div>
-          <div className="bg-indigo-50 p-3 md:p-4 rounded-lg">
-            <h5 className="font-semibold text-indigo-700">Award Structure</h5>
-            <p className="text-gray-700 mb-2">Based on past shows, awards typically include:</p>
-            <ul className="list-disc pl-4 md:pl-6 text-gray-700 space-y-1">
-              <li>Elementary: "Awards of Excellence" (non-ranked recognition)</li>
-              <li>Middle/High School: "Honorable Mentions"</li>
-              <li>High School Only: First, second, and third-place cash prizes</li>
-            </ul>
+        </div>
+        
+        <div className="bg-white rounded-lg shadow-sm overflow-hidden mb-6">
+          <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-5 py-3">
+            <h5 className="font-semibold text-white flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+              Award Structure
+            </h5>
           </div>
-          <div className="bg-indigo-50 p-3 md:p-4 rounded-lg">
-            <h5 className="font-semibold text-indigo-700">Juried Awards</h5>
+          <div className="p-5">
+            <p className="text-gray-700 mb-4">Based on past shows, awards typically include:</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-green-50 rounded-lg p-4 border border-green-100">
+                <div className="flex justify-center mb-2">
+                  <div className="bg-green-100 rounded-full p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                  </div>
+                </div>
+                <h6 className="font-semibold text-green-800 text-center mb-1">Elementary</h6>
+                <p className="text-gray-700 text-center text-xs">"Awards of Excellence" (non-ranked recognition)</p>
+              </div>
+              <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                <div className="flex justify-center mb-2">
+                  <div className="bg-blue-100 rounded-full p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
+                    </svg>
+                  </div>
+                </div>
+                <h6 className="font-semibold text-blue-800 text-center mb-1">Middle/High School</h6>
+                <p className="text-gray-700 text-center text-xs">"Honorable Mentions"</p>
+              </div>
+              <div className="bg-purple-50 rounded-lg p-4 border border-purple-100">
+                <div className="flex justify-center mb-2">
+                  <div className="bg-purple-100 rounded-full p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                </div>
+                <h6 className="font-semibold text-purple-800 text-center mb-1">High School Only</h6>
+                <p className="text-gray-700 text-center text-xs">First, second, and third-place cash prizes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-white rounded-lg shadow-sm p-5 border-l-4 border-indigo-500 hover:shadow-md transition-shadow">
+            <div className="flex items-center mb-3">
+              <div className="text-3xl mr-3">🎨</div>
+              <h5 className="font-semibold text-indigo-800">Juried Awards</h5>
+            </div>
             <p className="text-gray-700">Both professional jurors and "celebrity judges" award ribbons to select works. These special recognitions are presented during the dedicated awards ceremony from 3:30 PM to 4:00 PM.</p>
           </div>
-          <div className="bg-green-50 p-3 md:p-4 rounded-lg">
-            <h5 className="font-semibold text-green-700">Strategic Insight</h5>
-            <p className="text-gray-700">The elementary category\'s "excellence awards" potentially offer better recognition odds than the competitive high school rankings, making early participation particularly advantageous.</p>
+          
+          <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-lg shadow-sm p-5 border border-green-100 hover:shadow-md transition-shadow">
+            <div className="flex items-center mb-3">
+              <div className="text-3xl mr-3">💡</div>
+              <h5 className="font-semibold text-green-800">Strategic Insight</h5>
+            </div>
+            <p className="text-gray-700">The elementary category's "excellence awards" potentially offer better recognition odds than the competitive high school rankings, making early participation particularly advantageous.</p>
           </div>
         </div>
       </div>
@@ -772,41 +953,46 @@ const Participation = () => {
   ];
   
   return (
-    <section className="my-8 md:my-12">
+    <section className="my-10 md:my-16">
       <SectionTitle>Participation</SectionTitle>
       
-      {/* Mobile Accordion View */}
-      <div className="md:hidden mb-4">
-        <div className="mb-2 text-sm text-gray-500 text-center">Tap a section to expand</div>
-        <Accordion>
-          {tabs.map(tab => (
-            <AccordionItem 
-              key={tab.id}
-              title={tab.title}
-              isOpen={openAccordion === tab.id}
-              onToggle={() => toggleAccordion(tab.id)}
-            >
-              {tab.content}
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
-
-      {/* Desktop Tab View */}
-      <div className="hidden md:block bg-white rounded-lg shadow-md overflow-hidden">
-        <div className="flex flex-wrap border-b overflow-x-auto">
-          {tabs.map(tab => (
-            <TabButton 
-              key={tab.id}
-              active={activeTab === tab.id} 
-              onClick={() => setActiveTab(tab.id)}
-            >
-              {tab.title}
-            </TabButton>
-          ))}
+      <div className="relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-purple-50/30 to-white rounded-xl"></div>
+      
+        {/* Mobile Accordion View */}
+        <div className="md:hidden mb-4 relative z-10 px-3 py-5">
+          <div className="mb-4 text-sm text-gray-600 text-center font-medium">Tap a section to expand</div>
+          <Accordion>
+            {tabs.map(tab => (
+              <AccordionItem 
+                key={tab.id}
+                title={tab.title}
+                isOpen={openAccordion === tab.id}
+                onToggle={() => toggleAccordion(tab.id)}
+              >
+                {tab.content}
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
-        <div className="p-4 md:p-6">
-          {tabs.find(tab => tab.id === activeTab)?.content}
+
+        {/* Desktop Tab View */}
+        <div className="hidden md:block bg-white rounded-xl shadow-md overflow-hidden relative z-10">
+          <div className="flex flex-wrap border-b overflow-x-auto bg-gradient-to-r from-indigo-50 via-purple-50 to-indigo-50">
+            {tabs.map(tab => (
+              <TabButton 
+                key={tab.id}
+                active={activeTab === tab.id} 
+                onClick={() => setActiveTab(tab.id)}
+                className={activeTab === tab.id ? 'bg-white shadow-sm' : ''}
+              >
+                {tab.title}
+              </TabButton>
+            ))}
+          </div>
+          <div className="p-6">
+            {tabs.find(tab => tab.id === activeTab)?.content}
+          </div>
         </div>
       </div>
     </section>
@@ -817,14 +1003,17 @@ const Participation = () => {
 const TabButton = ({ children, active, onClick, className }) => {
   return (
     <button 
-      className={`py-3 px-4 md:px-6 text-sm md:text-base font-medium focus:outline-none transition-colors whitespace-nowrap ${className} ${
+      className={`py-3 px-5 md:px-6 text-sm md:text-base font-medium focus:outline-none transition-all duration-200 whitespace-nowrap relative ${className} ${
         active 
-          ? 'text-indigo-600 border-b-2 border-indigo-600' 
-          : 'text-gray-500 hover:text-indigo-500'
+          ? 'text-indigo-700 font-semibold' 
+          : 'text-gray-600 hover:text-indigo-600 hover:bg-white/50'
       }`}
       onClick={onClick}
     >
       {children}
+      {active && (
+        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500"></span>
+      )}
     </button>
   );
 };
@@ -836,21 +1025,27 @@ const Accordion = ({ children }) => {
 
 const AccordionItem = ({ title, children, isOpen, onToggle }) => {
   return (
-    <div className="border rounded-md overflow-hidden shadow-sm">
+    <div className="border rounded-lg overflow-hidden shadow-sm transition-shadow hover:shadow-md">
       <button
-        className={`w-full flex justify-between items-center p-4 text-left focus:outline-none ${isOpen ? 'bg-indigo-50' : 'bg-white hover:bg-gray-50'}`}
+        className={`w-full flex justify-between items-center p-4 text-left focus:outline-none transition-all duration-200 ${
+          isOpen 
+            ? 'bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-800' 
+            : 'bg-white hover:bg-gray-50'
+        }`}
         onClick={onToggle}
       >
-        <h4 className={`text-md font-medium ${isOpen ? 'text-indigo-700' : 'text-gray-700'}`}>{title}</h4>
-        <svg 
-          className={`w-5 h-5 ${isOpen ? 'text-indigo-600' : 'text-gray-400'} transform transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-        >
-          <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-        </svg>
+        <h4 className={`text-md font-medium ${isOpen ? 'text-indigo-800' : 'text-gray-700'}`}>{title}</h4>
+        <div className={`w-6 h-6 rounded-full flex items-center justify-center ${isOpen ? 'bg-indigo-100' : 'bg-gray-100'}`}>
+          <svg 
+            className={`w-4 h-4 ${isOpen ? 'text-indigo-600' : 'text-gray-500'} transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+          >
+            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
+        </div>
       </button>
       {isOpen && (
-        <div className="p-4 border-t border-gray-100 bg-white">
+        <div className="border-t border-indigo-100 bg-white p-5">
           {children}
         </div>
       )}
