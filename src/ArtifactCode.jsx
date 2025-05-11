@@ -60,35 +60,39 @@ const KeyContacts = () => {
   ];
 
   return (
-    <section className="my-8 md:my-12">
+    <section className="my-4 md:my-8">
       <SectionTitle>Key Contacts & Influence Network</SectionTitle>
       
-      <div className="bg-white rounded-lg shadow-md p-4 md:p-6">
-        <p className="mb-6 text-gray-700 text-sm md:text-base">
+      <div className="bg-white rounded-lg shadow-md p-2 md:p-4">
+        <p className="mb-3 text-gray-700 text-xs md:text-sm">
           Understanding the key decision-makers in the P-CCS art education network can help students and parents 
           navigate the art show process more effectively. Here are the most influential figures identified through research.
         </p>
         
-        <div className="space-y-8">
+        <div className="space-y-3">
           {contacts.map((group, groupIndex) => (
             <div key={groupIndex} className="rounded-lg overflow-hidden border border-gray-200">
-              <div className={`${group.categoryBg} px-4 py-3`}>
-                <h4 className={`font-semibold ${group.categoryText}`}>{group.category}</h4>
+              <div className={`${group.categoryBg} px-2 py-1`}>
+                <h4 className={`font-semibold text-sm ${group.categoryText}`}>{group.category}</h4>
               </div>
-              <div className="p-4 space-y-6">
+              <div className="p-2 space-y-2">
                 {group.individuals.map((contact, contactIndex) => (
-                  <div key={contactIndex} className="bg-gray-50 p-4 rounded-md shadow-sm border border-gray-100">
-                    <h5 className="font-medium text-indigo-800 text-lg">{contact.name}</h5>
-                    {contact.role && <p className="text-gray-700 text-sm"><span className="font-medium">Role:</span> {contact.role}</p>}
-                    {contact.schools && <p className="text-gray-700 text-sm"><span className="font-medium">Schools:</span> {contact.schools}</p>}
-                    {contact.school && <p className="text-gray-700 text-sm"><span className="font-medium">School:</span> {contact.school}</p>}
-                    {contact.email && (
-                      <p className="text-gray-700 text-sm">
-                        <span className="font-medium">Email:</span> 
-                        <a href={`mailto:${contact.email}`} className="text-indigo-600 hover:underline ml-1">{contact.email}</a>
-                      </p>
-                    )}
-                    {contact.description && <p className="text-gray-600 text-xs md:text-sm mt-2">{contact.description}</p>}
+                  <div key={contactIndex} className="bg-gray-50 p-2 rounded-md border border-gray-100">
+                    <div className="flex flex-col md:flex-row md:flex-wrap md:items-center">
+                      <h5 className="font-medium text-indigo-800 text-sm md:text-base mr-2">{contact.name}</h5>
+                      {contact.role && <p className="text-gray-700 text-xs"><span className="font-medium">Role:</span> {contact.role}</p>}
+                    </div>
+                    <div className="flex flex-col md:flex-row md:flex-wrap text-xs gap-2 mt-1">
+                      {contact.schools && <p className="text-gray-700"><span className="font-medium">Schools:</span> {contact.schools}</p>}
+                      {contact.school && <p className="text-gray-700"><span className="font-medium">School:</span> {contact.school}</p>}
+                      {contact.email && (
+                        <p className="text-gray-700">
+                          <span className="font-medium">Email:</span> 
+                          <a href={`mailto:${contact.email}`} className="text-indigo-600 hover:underline ml-1">{contact.email}</a>
+                        </p>
+                      )}
+                    </div>
+                    {contact.description && <p className="text-gray-600 text-xs mt-1">{contact.description}</p>}
                   </div>
                 ))}
               </div>
@@ -96,21 +100,21 @@ const KeyContacts = () => {
           ))}
         </div>
         
-        <div className="bg-gray-100 border border-gray-300 p-4 mt-8">
-          <h4 className="uppercase text-xs tracking-widest mb-3 font-bold text-gray-500 text-left">INFLUENCE NETWORK STRATEGIC INSIGHT</h4>
-          <p className="text-sm text-gray-700 mb-4 text-left">
+        <div className="bg-gray-100 border border-gray-300 p-2 mt-4">
+          <h4 className="uppercase text-xs tracking-widest mb-1 font-bold text-gray-500 text-left">INFLUENCE NETWORK STRATEGIC INSIGHT</h4>
+          <p className="text-xs text-gray-700 mb-2 text-left">
             Understanding this network of influence is crucial for strategic engagement:
           </p>
-          <ul className="space-y-2 text-left">
+          <ul className="space-y-1 text-left">
             {[
               "Art teachers are the primary gateway to nomination - they select which student work is submitted to the show",
               "Cathie Williams, as the district arts coordinator, likely influences overall selection guidelines and priorities",
               "School PTAs/PTOs may include arts committee members who advocate for visual arts",
               "Building positive relationships with these key figures can increase a student's chances of having work selected"
             ].map((insight, idx) => (
-              <li key={idx} className="flex items-start gap-2">
-                <input type="checkbox" className="mt-1 flex-shrink-0" />
-                <span className="text-sm text-gray-700">{insight}</span>
+              <li key={idx} className="flex items-start gap-1">
+                <input type="checkbox" className="mt-0.5 flex-shrink-0 w-3 h-3" />
+                <span className="text-xs text-gray-700">{insight}</span>
               </li>
             ))}
           </ul>
@@ -929,7 +933,9 @@ const JudgingProcess = () => {
         <div className="bg-white rounded-xl shadow-md overflow-hidden border border-red-100 transition-transform hover:scale-[1.01] duration-200">
           <div className="bg-gradient-to-r from-red-500 to-red-600 px-4 py-3 flex items-center gap-2">
             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
             <h5 className="font-semibold text-white text-base md:text-lg">Artwork Documentation Strategy</h5>
           </div>
