@@ -30,7 +30,8 @@ This document outlines the SEO improvements implemented to address the constrain
 
 - Added comprehensive Open Graph tags for better social media sharing
 - Implemented Twitter Card metadata for improved Twitter previews
-- Created a dedicated banner image (`public/art-show-banner.svg`)
+- Used optimized PNG image (`public/images/p-css-spotlight.png`) for social sharing
+- Added image dimensions metadata for better social previews
 
 ### 5. SPA Routing for GitHub Pages
 
@@ -38,12 +39,20 @@ This document outlines the SEO improvements implemented to address the constrain
 - Added a `404.html` file with redirection script
 - Updated `index.html` with the complementary script
 
+### 6. Sitemap and Crawler Support
+
+- Added `sitemap.xml` for better search engine indexing
+- Created `robots.txt` with proper directives for crawlers
+- Connected sitemap to robots.txt for discovery
+
 ## File Changes
 
 1. **New Files:**
    - `src/components/SEO.jsx` - SEO component using React Helmet
    - `public/404.html` - SPA routing fallback
-   - `public/art-show-banner.svg` - Social sharing image
+   - `public/images/p-css-spotlight.png` - Optimized image for social sharing
+   - `public/sitemap.xml` - XML sitemap for search engines
+   - `public/robots.txt` - Crawler directives
 
 2. **Modified Files:**
    - `src/main.jsx` - Added HelmetProvider and hydration support
@@ -74,7 +83,7 @@ Use these tools to verify the SEO implementation:
 
 Potential additional enhancements:
 
-1. Consider adding `.ics` calendar file download links
+1. Complete React Snap prerendering implementation (puppeteer configuration needed)
 2. Submit the event to Google Events and local directories
-3. Implement a sitemap.xml file for complex multi-page scenarios
+3. Create social media copy for easy sharing of the event
 4. Consider advanced caching strategies for faster load times 

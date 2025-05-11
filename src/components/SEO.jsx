@@ -5,12 +5,14 @@ export default function SEO({
   description = 'Join us at Salem High on May 17, 2025 for the P-CCS Art Show featuring 2,000+ artworks from K-12 students. Live demos, awards, and more!',
   canonicalUrl = 'https://primeinc.github.io/p-ccs/',
   type = 'website',
-  image = 'https://primeinc.github.io/p-ccs/art-show-banner.svg', // Use SVG for higher quality where supported
+  image = '/images/p-css-spotlight.png', // Using the PNG image from images directory
   imageAlt = 'P-CCS K-12 Art Show Banner',
   children
 }) {
   const siteUrl = 'https://primeinc.github.io/p-ccs';
   const fullUrl = `${siteUrl}${canonicalUrl}`;
+  
+  // Handle absolute vs relative image paths
   const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
   
   return (
@@ -27,6 +29,8 @@ export default function SEO({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={imageAlt} />
       
       {/* Twitter */}
