@@ -1,0 +1,49 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# PCCS Directory Tools Guide
+
+This project contains tools for scraping the Plymouth-Canton Community Schools staff directory and working with the collected data.
+
+## Core Files
+
+- [pccs_directory_scraper.py](mdc:pccs_directory_scraper.py) - Scraper that collects staff directory data
+- [pccs_directory_reader.py](mdc:pccs_directory_reader.py) - Utility for reading, filtering, and analyzing the directory data
+- [PCCS_TOOLS_README.md](mdc:PCCS_TOOLS_README.md) - Documentation for using the tools
+
+## Scraper Architecture
+
+The [scraper](mdc:pccs_directory_scraper.py) uses Playwright to:
+
+1. Navigate through all 50 pages of the PCCS staff directory
+2. Extract staff information including names, titles, locations
+3. Extract emails using DOM-based methods (with fallback to script parsing)
+4. Save data to both CSV and JSON formats
+
+Key functions:
+- `extract_staff_entries()` - Extracts staff info from a single page
+- `run()` - Main function that handles pagination and data collection
+
+## Directory Reader Architecture
+
+The [reader tool](mdc:pccs_directory_reader.py) provides:
+
+1. Loading directory data from CSV
+2. Filtering by name, title, or location
+3. Displaying in various formats (table, JSON, CSV)
+4. Generating summary statistics
+
+Key functions:
+- `load_directory()` - Loads the CSV data
+- `filter_directory()` - Applies filters to the data
+- `display_directory()` - Shows data in the requested format
+
+## Usage Workflow
+
+1. Install dependencies (Playwright, pandas, tabulate)
+2. Run the scraper to collect data
+3. Use the reader tool to analyze, filter, and export subsets of the data
+
+See the [README](mdc:PCCS_TOOLS_README.md) for detailed usage instructions.

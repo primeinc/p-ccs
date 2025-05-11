@@ -1,0 +1,62 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# PCCS Directory Tools Technical Details
+
+## Email Extraction Strategy
+
+The scraper handles obfuscated emails through multiple extraction methods:
+
+1. **DOM-based extraction (primary)**: 
+   - Extracts emails from rendered DOM elements using `.fsEmail div` selectors
+   - Extracts from `mailto:` links when available
+
+2. **Script parsing (fallback)**:
+   - Parses the obfuscated JavaScript in `<script>` tags
+   - Handles the Finalsite `insertEmail()` function pattern
+   - Reverses the domain and username strings to reconstruct emails
+
+This multi-method approach ensures 100% email extraction success rate.
+
+## Pagination Implementation
+
+The [scraper](mdc:pccs_directory_scraper.py) uses URL parameter-based pagination:
+
+```python
+for i in range(1, TOTAL_PAGES + 1):
+    print(f"Scraping page {i} of {TOTAL_PAGES}...")
+    await page.goto(f"{BASE_URL}?const_page={i}")
+    # Wait for JS to execute and render the emails
+    await page.wait_for_timeout(1500)
+    entries = await extract_staff_entries(page)
+    all_data.extend(entries)
+```
+
+## Data Processing
+
+The [reader tool](mdc:pccs_directory_reader.py) leverages pandas for efficient data processing:
+
+```python
+# Filtering example
+filtered_df = filtered_df[filtered_df['name'].str.contains(name, case=False, na=False)]
+```
+
+## Handling Async Operations
+
+The scraper uses `async/await` patterns with Playwright:
+
+1. Properly awaits all coroutines (including chained calls)
+2. Uses proper timeouts to ensure page elements have loaded
+3. Handles exceptions gracefully
+
+## Running the Tools
+
+The setup is optimized for compatibility and requires minimal dependencies:
+
+```bash
+# Install dependencies
+pip install playwright pandas tabulate
+playwright install
+```

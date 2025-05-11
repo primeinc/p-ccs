@@ -49,6 +49,11 @@ Key configuration files for deployment:
 *   `package.json` (see `homepage`, `predeploy`, `deploy` scripts)
 *   `vite.config.js` (see `base` setting)
 
+## Additional Tools
+
+The repository also includes Python tools for directory operations:
+*   See [PCCS_TOOLS_README.md](PCCS_TOOLS_README.md) for information about the directory scraper and analysis tools.
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
