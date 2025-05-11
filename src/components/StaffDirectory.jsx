@@ -161,7 +161,7 @@ const StaffDirectory = () => {
                             <div className="rounded-b-xl overflow-hidden max-w-2xl mx-auto">
                               <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
                                 {/* Compact header */}
-                                <div className={`bg-gradient-to-r from-${colors.bg.split('-')[1]}-600 to-${colors.bg.split('-')[1]}-500 py-2.5 px-3`}>
+                                <div className={`bg-indigo-900 py-2.5 px-3`}>
                                   <div className="flex items-center">
                                     <div className="bg-white/20 rounded-full p-1.5 mr-2.5">
                                       <svg className="h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
