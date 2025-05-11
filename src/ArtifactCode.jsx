@@ -515,7 +515,8 @@ const Participation = () => {
       <SectionTitle>Participation</SectionTitle>
       
       {/* Mobile Accordion View */}
-      <div className="md:hidden">
+      <div className="md:hidden mb-4">
+        <div className="mb-2 text-sm text-gray-500 text-center">Tap a section to expand</div>
         <Accordion>
           {tabs.map(tab => (
             <AccordionItem 
@@ -751,7 +752,8 @@ const JudgingProcess = () => {
       <SectionTitle>Judging Process</SectionTitle>
       
       {/* Mobile Accordion View */}
-      <div className="md:hidden">
+      <div className="md:hidden mb-4">
+        <div className="mb-2 text-sm text-gray-500 text-center">Tap a section to expand</div>
         <Accordion>
           {tabs.map(tab => (
             <AccordionItem 
@@ -914,7 +916,8 @@ const StrategyByAge = () => {
       <SectionTitle>Success Strategies by Age Group</SectionTitle>
       
       {/* Mobile Accordion View */}
-      <div className="md:hidden">
+      <div className="md:hidden mb-4">
+        <div className="mb-2 text-sm text-gray-500 text-center">Tap a section to expand</div>
         <Accordion>
           {ageStrategies.map(item => (
             <AccordionItem 
@@ -937,7 +940,7 @@ const StrategyByAge = () => {
               key={item.id}
               active={activeAge === item.id} 
               onClick={() => setActiveAge(item.id)}
-              className="flex-shrink-0" // Ensure tabs don't wrap aggressively on smaller desktop screens
+              className="flex-shrink-0"
             >
               {item.title}
             </TabButton>
