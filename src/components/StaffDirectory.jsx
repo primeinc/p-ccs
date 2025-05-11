@@ -161,7 +161,7 @@ const StaffDirectory = () => {
                             <div className="rounded-b-xl overflow-hidden max-w-2xl mx-auto">
                               <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
                                 {/* Compact header */}
-                                <div className={`bg-gradient-to-r from-${colors.bg.split('-').pop()}-600 to-${colors.bg.split('-').pop()}-500 py-2.5 px-3`}>
+                                <div className={`bg-gradient-to-r from-${colors.bg.split('-')[1]}-600 to-${colors.bg.split('-')[1]}-500 py-2.5 px-3`}>
                                   <div className="flex items-center">
                                     <div className="bg-white/20 rounded-full p-1.5 mr-2.5">
                                       <svg className="h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -169,7 +169,7 @@ const StaffDirectory = () => {
                                       </svg>
                                     </div>
                                     <div>
-                                      <h3 className="text-white text-sm font-bold">Professional Information</h3>
+                                      <h3 className="text-white text-base font-bold">Professional Information</h3>
                                     </div>
                                   </div>
                                 </div>
@@ -185,7 +185,7 @@ const StaffDirectory = () => {
                                       </div>
                                       <div>
                                         <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Department</div>
-                                        <div className="text-gray-800 font-medium text-sm text-justify">{person.department}</div>
+                                        <div className="text-gray-800 font-medium text-sm">{person.department}</div>
                                       </div>
                                     </div>
                                   )}
@@ -199,7 +199,7 @@ const StaffDirectory = () => {
                                       </div>
                                       <div>
                                         <div className="text-xs font-semibold text-purple-600 uppercase tracking-wide">Role</div>
-                                        <div className="text-gray-800 font-medium text-sm text-justify">{person.role}</div>
+                                        <div className="text-gray-800 font-medium text-sm">{person.role}</div>
                                       </div>
                                     </div>
                                   )}
@@ -235,7 +235,7 @@ const StaffDirectory = () => {
                                       </div>
                                       <div>
                                         <div className="text-xs font-semibold text-amber-600 uppercase tracking-wide">Specialization</div>
-                                        <div className="text-gray-800 font-medium text-sm text-justify">{person.specialization}</div>
+                                        <div className="text-gray-800 font-medium text-sm">{person.specialization}</div>
                                       </div>
                                     </div>
                                   )}
@@ -251,7 +251,7 @@ const StaffDirectory = () => {
                                       </div>
                                       <div>
                                         <div className="text-xs font-semibold text-indigo-600 uppercase tracking-wide">Education</div>
-                                        <div className="text-gray-800 font-medium text-sm text-justify">{person.education}</div>
+                                        <div className="text-gray-800 font-medium text-sm">{person.education}</div>
                                       </div>
                                     </div>
                                   )}
@@ -265,7 +265,7 @@ const StaffDirectory = () => {
                                       </div>
                                       <div>
                                         <div className="text-xs font-semibold text-teal-600 uppercase tracking-wide">Note</div>
-                                        <div className="text-gray-800 font-medium text-sm text-justify">{person.note}</div>
+                                        <div className="text-gray-800 font-medium text-sm">{person.note}</div>
                                       </div>
                                     </div>
                                   )}
