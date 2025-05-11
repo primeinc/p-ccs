@@ -53,8 +53,8 @@ const StaffDirectory = () => {
       {/* Inject CSS animations */}
       <style dangerouslySetInnerHTML={{ __html: fadeIn }} />
       
-      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-        <div className="text-center mb-10">
+      <div className="container mx-auto px-0 sm:px-4 md:px-8 max-w-6xl">
+        <div className="text-center mb-10 px-4">
           <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 mb-4">
             P-CCS Art Staff Directory (2025)
           </h2>
