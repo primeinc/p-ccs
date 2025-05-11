@@ -5,12 +5,12 @@ export default function SEO({
   description = 'Join us at Salem High on May 17, 2025 for the P-CCS Art Show featuring 2,000+ artworks from K-12 students. Live demos, awards, and more!',
   canonicalUrl = 'https://primeinc.github.io/p-ccs/',
   type = 'website',
-  image = '/images/p-css-spotlight.png', // Using the PNG image from images directory
+  image = '/p-ccs/images/p-css-spotlight.png', // Updated to include the base path
   imageAlt = 'P-CCS K-12 Art Show Banner',
   children
 }) {
-  const siteUrl = 'https://primeinc.github.io/p-ccs';
-  const fullUrl = `${siteUrl}${canonicalUrl}`;
+  const siteUrl = 'https://primeinc.github.io';
+  const fullUrl = canonicalUrl.startsWith('http') ? canonicalUrl : `${siteUrl}${canonicalUrl}`;
   
   // Handle absolute vs relative image paths
   const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
@@ -103,7 +103,7 @@ export default function SEO({
                 "name": "Plymouth-Canton Community Schools",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "${siteUrl}/images/p-css-spotlight.png"
+                  "url": "${siteUrl}/p-ccs/images/p-css-spotlight.png"
                 }
               },
               "mainEntityOfPage": "${fullUrl}",
