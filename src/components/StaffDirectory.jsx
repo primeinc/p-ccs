@@ -64,19 +64,6 @@ const StaffDirectory = () => {
           </p>
         </div>
 
-        {/* Buttons for printing or sharing */}
-        <div className="flex justify-end mb-6 gap-2">
-          <button 
-            onClick={() => window.print()} 
-            className="flex items-center px-4 py-2 text-sm bg-white text-indigo-700 border border-indigo-200 rounded-lg shadow-sm hover:bg-indigo-50 transition-all hover:shadow"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-            </svg>
-            Print
-          </button>
-        </div>
-
         {/* Staff Directory Categories */}
         <div className="space-y-8">
           {staffDirectory.map((category, categoryIndex) => {
