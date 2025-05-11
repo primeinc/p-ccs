@@ -574,21 +574,21 @@ const Accordion = ({ children }) => {
 
 const AccordionItem = ({ title, children, isOpen, onToggle }) => {
   return (
-    <div className="border rounded-md overflow-hidden">
+    <div className="border rounded-md overflow-hidden shadow-sm">
       <button
-        className="w-full flex justify-between items-center p-3 md:p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none text-left"
+        className={`w-full flex justify-between items-center p-4 text-left focus:outline-none ${isOpen ? 'bg-indigo-50' : 'bg-white hover:bg-gray-50'}`}
         onClick={onToggle}
       >
-        <h4 className="text-sm font-medium text-indigo-700">{title}</h4>
+        <h4 className={`text-md font-medium ${isOpen ? 'text-indigo-700' : 'text-gray-700'}`}>{title}</h4>
         <svg 
-          className={`w-5 h-5 text-indigo-600 transform transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-5 h-5 ${isOpen ? 'text-indigo-600' : 'text-gray-400'} transform transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
         >
           <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
         </svg>
       </button>
       {isOpen && (
-        <div className="p-3 md:p-4 border-t border-gray-200 bg-white">
+        <div className="p-4 border-t border-gray-100 bg-white">
           {children}
         </div>
       )}
